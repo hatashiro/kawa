@@ -12,6 +12,7 @@
 		CC6D8ED21B654099005682C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED11B654099005682C0 /* Images.xcassets */; };
 		CC6D8ED51B654099005682C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED31B654099005682C0 /* Main.storyboard */; };
 		CC6D8EE11B654099005682C0 /* kawaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8EE01B654099005682C0 /* kawaTests.swift */; };
+		CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		CC6D8EDA1B654099005682C0 /* kawaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kawaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6D8EDF1B654099005682C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6D8EE01B654099005682C0 /* kawaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kawaTests.swift; sourceTree = "<group>"; };
+		CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSourceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
+				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
 				CC6D8ECF1B654099005682C0 /* ViewController.swift */,
 				CC6D8ED11B654099005682C0 /* Images.xcassets */,
 				CC6D8ED31B654099005682C0 /* Main.storyboard */,
@@ -210,6 +213,7 @@
 			files = (
 				CC6D8ED01B654099005682C0 /* ViewController.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
+				CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
