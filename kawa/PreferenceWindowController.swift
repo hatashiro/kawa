@@ -15,4 +15,14 @@ class PreferenceWindowController: NSWindowController {
         let viewController = contentViewController as! PreferenceViewController
         viewController.loadInputSources()
     }
+
+    func showAndFocusWindow(sender: AnyObject?) {
+        self.showWindow(sender)
+        self.window?.makeKeyAndOrderFront(sender)
+        NSApp.activateIgnoringOtherApps(true)
+    }
+
+    func hideWindow(sender: AnyObject?) {
+        self.window?.orderOut(sender)
+    }
 }

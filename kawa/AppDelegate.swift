@@ -25,9 +25,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let storyboard = NSStoryboard(name: "Main", bundle: nil)!
             preferenceWindowController = storyboard.instantiateControllerWithIdentifier("Preference") as! PreferenceWindowController
         }
-        preferenceWindowController.showWindow(self)
+        preferenceWindowController.showAndFocusWindow(self)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
+    }
+
+    @IBAction func showPreferences(sender: AnyObject?) {
+        preferenceWindowController.showAndFocusWindow(self)
+    }
+
+    @IBAction func hidePreferences(sender: AnyObject?) {
+        preferenceWindowController.hideWindow(self)
     }
 }

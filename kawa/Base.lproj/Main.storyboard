@@ -23,7 +23,12 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="2BU-NJ-sy0" kind="show" id="3ke-Yd-V7W"/>
+                                                <action selector="showPreferences:" target="Voe-Tx-rLC" id="oAo-9l-zHb"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close Preferences" keyEquivalent="w" id="TvQ-sm-qjm">
+                                            <connections>
+                                                <action selector="hidePreferences:" target="Voe-Tx-rLC" id="CSr-Lr-V8H"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -97,7 +102,7 @@
                 </windowController>
                 <customObject id="rgO-C5-Czw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="250"/>
+            <point key="canvasLocation" x="72" y="478"/>
         </scene>
         <!--Preference View Controller-->
         <scene sceneID="lOC-jq-WBP">
@@ -202,7 +207,7 @@
                 </viewController>
                 <customObject id="iGh-Aw-zBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="250"/>
+            <point key="canvasLocation" x="781" y="478"/>
         </scene>
     </scenes>
 </document>

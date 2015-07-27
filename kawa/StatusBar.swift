@@ -28,6 +28,6 @@ class StatusBar: NSObject {
     }
 
     func action(sender: AnyObject) {
-        preferenceWindowController.showWindow(nil)
+        preferenceWindowController.showAndFocusWindow(sender)
     }
 }
