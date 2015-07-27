@@ -11,6 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        NSApp.setActivationPolicy(NSApplicationActivationPolicy.Accessory)
         InputSourceManager.initialize()
     }
 
