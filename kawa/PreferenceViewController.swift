@@ -9,11 +9,11 @@
 import Cocoa
 
 class PreferenceViewController: NSViewController {
+    @IBOutlet weak var tableView: PreferenceTableView!
+    
     func loadInputSources() {
-        // FIXME
-        for i in InputSourceManager.inputSources {
-            println(i.id)
-            println(i.name)
-        }
+        tableView.setDataSource(tableView)
+        tableView.setDelegate(tableView)
+        tableView.reloadData()
     }
 }
