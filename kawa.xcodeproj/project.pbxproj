@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */; };
+		CC69E0781B66415300A92F58 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0771B66415300A92F58 /* PreferenceViewController.swift */; };
 		CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8ECD1B654099005682C0 /* AppDelegate.swift */; };
 		CC6D8ED21B654099005682C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED11B654099005682C0 /* Images.xcassets */; };
 		CC6D8ED51B654099005682C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED31B654099005682C0 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		CC69E0771B66415300A92F58 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		CC6D8EC81B654099005682C0 /* kawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6D8ECC1B654099005682C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6D8ECD1B654099005682C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
+				CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */,
+				CC69E0771B66415300A92F58 /* PreferenceViewController.swift */,
 				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
 				CC6D8ED11B654099005682C0 /* Images.xcassets */,
 				CC6D8ED31B654099005682C0 /* Main.storyboard */,
@@ -208,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
 				CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */,
+				CC69E0781B66415300A92F58 /* PreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +408,7 @@
 				CC6D8EE61B654099005682C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC6D8EE71B654099005682C0 /* Build configuration list for PBXNativeTarget "kawaTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +417,7 @@
 				CC6D8EE91B654099005682C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
