@@ -37,10 +37,12 @@ class InputSource {
 
         let imageURL: NSURL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
         if imageURL != nil {
-            self.icon = NSImage(contentsOfURL: imageURL!)
+            self.icon = NSImage(contentsOfURL: getRetinaImageURL(imageURL!))
             if self.icon == nil {
-                let alternativeTiffURL = imageURL!.URLByDeletingPathExtension!.URLByAppendingPathExtension("tiff")
-                self.icon = NSImage(contentsOfURL: alternativeTiffURL)
+                self.icon = NSImage(contentsOfURL: getTiffImageURL(imageURL!))
+                if self.icon == nil {
+                    self.icon = NSImage(contentsOfURL: imageURL!)
+                }
             }
         } else {
             let iconRef: IconRef? = COpaquePointer(TISGetInputSourceProperty(tisInputSource, kTISPropertyIconRef))
@@ -52,6 +54,18 @@ class InputSource {
 
     func select() -> Bool {
         return TISSelectInputSource(tisInputSource) == noErr
+    }
+
+    func getRetinaImageURL(path: NSURL) -> NSURL {
+        var components = path.pathComponents!
+        let filename: String = components.removeLast() as! String
+        let ext: String = path.pathExtension!
+        let retinaFilename = filename.stringByReplacingOccurrencesOfString("." + ext, withString: "@2x." + ext)
+        return NSURL.fileURLWithPathComponents(components + [retinaFilename])!
+    }
+
+    func getTiffImageURL(path: NSURL) -> NSURL {
+        return path.URLByDeletingPathExtension!.URLByAppendingPathExtension("tiff")
     }
 }
 
