@@ -26,4 +26,10 @@ class PreferenceTableView: NSTableView, NSTableViewDataSource, NSTableViewDelega
 
         return cell
     }
+
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        // FIXME: test purpose
+        let tableView = notification.object as! NSTableView
+        InputSourceManager.inputSources[tableView.selectedRowIndexes.firstIndex].select()
+    }
 }
