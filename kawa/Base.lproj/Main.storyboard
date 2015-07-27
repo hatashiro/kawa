@@ -84,7 +84,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="kawa" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-77"/>
+            <point key="canvasLocation" x="-116" y="-49"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="FYq-vW-QWk">
@@ -102,7 +102,7 @@
                 </windowController>
                 <customObject id="rgO-C5-Czw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="478"/>
+            <point key="canvasLocation" x="62" y="166"/>
         </scene>
         <!--Preference View Controller-->
         <scene sceneID="lOC-jq-WBP">
@@ -207,7 +207,7 @@
                 </viewController>
                 <customObject id="iGh-Aw-zBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781" y="478"/>
+            <point key="canvasLocation" x="62" y="494"/>
         </scene>
     </scenes>
 </document>
