@@ -95,6 +95,9 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="163" y="199" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+                        <connections>
+                            <outlet property="delegate" destination="2BU-NJ-sy0" id="Ucs-Ro-RZb"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="WK9-v7-Mix" kind="relationship" relationship="window.shadowedContentViewController" id="WFy-ql-Bvp"/>
@@ -116,7 +119,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="PreferenceTableView" customModule="kawa" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="448" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="449.5" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -159,7 +162,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="Shortcut" width="256" minWidth="40" maxWidth="1000" id="5Ck-kV-jeJ">
+                                        <tableColumn identifier="Shortcut" width="254.5" minWidth="40" maxWidth="1000" id="5Ck-kV-jeJ">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Shortcut">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -173,7 +176,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="ShortcutCellView" id="Rmx-MO-swj" customClass="ShortcutCellView" customModule="kawa" customModuleProvider="target">
-                                                    <rect key="frame" x="191.5" y="1" width="256" height="20"/>
+                                                    <rect key="frame" x="191.5" y="1" width="254" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-7B-J5s" customClass="MASShortcutView">
@@ -191,7 +194,7 @@
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="ikE-By-STJ">
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ikE-By-STJ">
                             <rect key="frame" x="1" y="117.66790354251862" width="237.5" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>

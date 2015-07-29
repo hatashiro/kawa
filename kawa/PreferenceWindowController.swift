@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PreferenceWindowController: NSWindowController {
+class PreferenceWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
 
@@ -16,13 +16,19 @@ class PreferenceWindowController: NSWindowController {
         viewController.loadInputSources()
     }
 
-    func showAndFocusWindow(sender: AnyObject?) {
+    func showAndActivate(sender: AnyObject?) {
         self.showWindow(sender)
         self.window?.makeKeyAndOrderFront(sender)
         NSApp.activateIgnoringOtherApps(true)
     }
 
-    func hideWindow(sender: AnyObject?) {
-        self.window?.orderOut(sender)
+    func windowWillClose(notification: NSNotification) {
+        deactivate()
+    }
+
+    func deactivate() {
+        // focus an application owning the menu bar
+        let workspace = NSWorkspace.sharedWorkspace()
+        workspace.menuBarOwningApplication?.activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
     }
 }
