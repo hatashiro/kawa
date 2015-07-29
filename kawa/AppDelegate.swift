@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBar: StatusBar!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        NSApp.setActivationPolicy(NSApplicationActivationPolicy.Accessory)
         InputSourceManager.initialize()
         showPreferenceWindow()
         statusBar = StatusBar(preferenceWindowController: preferenceWindowController)
