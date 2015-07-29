@@ -14,21 +14,28 @@ class PreferenceTableView: NSTableView, NSTableViewDataSource, NSTableViewDelega
     }
 
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var cell: NSTableCellView?
-
         let identifier = tableColumn?.identifier
+        let inputSource = InputSourceManager.inputSources[row]
+
         if identifier == "Keyboard" {
-            cell = tableView.makeViewWithIdentifier("KeyboardCellView", owner: self) as? NSTableCellView
-
-            let inputSource = InputSourceManager.inputSources[row]
-            cell!.textField?.stringValue = inputSource.name
-            cell!.imageView?.image = inputSource.icon
+            return createKeyboardCellView(tableView, inputSource)
         } else if identifier == "Shortcut" {
-            cell = tableView.makeViewWithIdentifier("ShortcutCellView", owner: self) as? ShortcutCellView
-
-            // FIXME: set user-defined shortcuts
+            return createShorcutCellView(tableView, inputSource)
         }
 
+        return nil
+    }
+
+    func createKeyboardCellView(tableView: NSTableView, _ inputSource: InputSource) -> NSTableCellView? {
+        var cell = tableView.makeViewWithIdentifier("KeyboardCellView", owner: self) as? NSTableCellView
+        cell!.textField?.stringValue = inputSource.name
+        cell!.imageView?.image = inputSource.icon
+        return cell
+    }
+
+    func createShorcutCellView(tableView: NSTableView, _ inputSource: InputSource) -> ShortcutCellView? {
+        var cell = tableView.makeViewWithIdentifier("ShortcutCellView", owner: self) as? ShortcutCellView
+        cell?.setInputSource(inputSource)
         return cell
     }
 }

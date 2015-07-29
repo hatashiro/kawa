@@ -10,4 +10,10 @@ import Cocoa
 
 class ShortcutCellView: NSTableCellView {
     @IBOutlet weak var shortcutView: MASShortcutView!
+
+    var inputSource: InputSource?
+
+    func setInputSource(inputSource: InputSource) {
+        self.inputSource = inputSource
+    }
 }
