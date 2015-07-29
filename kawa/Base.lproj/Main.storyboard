@@ -115,7 +115,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="PreferenceTableView" customModule="kawa" customModuleProvider="target">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="PreferenceTableView" customModule="kawa" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="448" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
