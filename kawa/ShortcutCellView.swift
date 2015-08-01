@@ -12,8 +12,16 @@ class ShortcutCellView: NSTableCellView {
     @IBOutlet weak var shortcutView: MASShortcutView!
 
     var inputSource: InputSource?
+    var shortcutKey: String?
 
     func setInputSource(inputSource: InputSource) {
         self.inputSource = inputSource
+        shortcutKey = inputSource.id.stringByReplacingOccurrencesOfString(".", withString: "-")
+        shortcutView.associatedUserDefaultsKey = shortcutKey!
+        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(shortcutKey!, toAction: selectInput)
+    }
+
+    func selectInput() {
+        inputSource?.select()
     }
 }
