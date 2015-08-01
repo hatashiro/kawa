@@ -9,13 +9,6 @@
 import Cocoa
 
 class PreferenceWindowController: NSWindowController, NSWindowDelegate {
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-        let viewController = contentViewController as! PreferenceViewController
-        viewController.loadInputSources()
-    }
-
     func showAndActivate(sender: AnyObject?) {
         self.showWindow(sender)
         self.window?.makeKeyAndOrderFront(sender)

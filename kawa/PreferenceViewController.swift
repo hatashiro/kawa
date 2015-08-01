@@ -10,6 +10,11 @@ import Cocoa
 
 class PreferenceViewController: NSViewController {
     @IBOutlet weak var tableView: PreferenceTableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadInputSources()
+    }
     
     func loadInputSources() {
         tableView.setDataSource(tableView)

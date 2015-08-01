@@ -92,7 +92,6 @@
                 <windowController storyboardIdentifier="Preference" id="2BU-NJ-sy0" customClass="PreferenceWindowController" customModule="kawa" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Kawa" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="gw6-0r-b0T">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="163" y="199" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
                         <connections>
@@ -100,18 +99,88 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="WK9-v7-Mix" kind="relationship" relationship="window.shadowedContentViewController" id="WFy-ql-Bvp"/>
+                        <segue destination="lsI-lx-rUQ" kind="relationship" relationship="window.shadowedContentViewController" id="hf9-m3-T4O"/>
                     </connections>
                 </windowController>
                 <customObject id="rgO-C5-Czw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="62" y="166"/>
         </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="5ir-jp-5yI">
+            <objects>
+                <tabViewController selectedTabViewItemIndex="0" id="lsI-lx-rUQ" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem label="Shortcuts" id="t0q-O3-7G8"/>
+                        <tabViewItem label="System Settings" id="a3F-Tg-T9s"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="B9b-jX-Do0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="WK9-v7-Mix" kind="relationship" relationship="tabItems" id="FMn-AA-T9j"/>
+                        <segue destination="8tD-vA-uhk" kind="relationship" relationship="tabItems" id="cIb-Vc-1BU"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="raC-uG-Dj5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215.5" y="705"/>
+        </scene>
+        <!--System Setting View Controller-->
+        <scene sceneID="rYs-if-gnG">
+            <objects>
+                <viewController id="8tD-vA-uhk" customClass="SystemSettingViewController" customModule="kawa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" id="hjE-TV-MvY">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="General Stuff" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
+                                <rect key="frame" x="17" y="16" width="416" height="284"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="414" height="268"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-vT-3c2">
+                                            <rect key="frame" x="16" y="242" width="382" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Show Menubar Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zub-x4-8eR">
+                                            <rect key="frame" x="35" y="207" width="363" height="34"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="If you hide the icon you can access the preferences by starting Kawa again" id="ZP5-V3-u7u">
+                                                <font key="font" metaFont="systemBold"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-xa-7TO">
+                                            <rect key="frame" x="16" y="170" width="382" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Launch Kawa on startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Hpx-WQ-b8B">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="YAB-W8-ond" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="396" y="924"/>
+        </scene>
         <!--Preference View Controller-->
         <scene sceneID="lOC-jq-WBP">
             <objects>
                 <viewController id="WK9-v7-Mix" customClass="PreferenceViewController" customModule="kawa" customModuleProvider="target" sceneMemberID="viewController">
-                    <scrollView key="view" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jSm-gI-Qdt">
+                    <scrollView key="view" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jSm-gI-Qdt">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="Z8E-xv-KLv">
@@ -119,7 +188,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="PreferenceTableView" customModule="kawa" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="449.5" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="448" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -213,7 +282,7 @@
                 </viewController>
                 <customObject id="iGh-Aw-zBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="494"/>
+            <point key="canvasLocation" x="396" y="524"/>
         </scene>
     </scenes>
     <resources>
