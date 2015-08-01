@@ -137,20 +137,20 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="General Stuff" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
-                                <rect key="frame" x="17" y="16" width="416" height="284"/>
+                                <rect key="frame" x="17" y="46" width="416" height="254"/>
                                 <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="414" height="268"/>
+                                    <rect key="frame" x="1" y="1" width="414" height="238"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-vT-3c2">
-                                            <rect key="frame" x="16" y="242" width="382" height="18"/>
+                                            <rect key="frame" x="16" y="212" width="382" height="18"/>
                                             <buttonCell key="cell" type="check" title="Show Menubar Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zub-x4-8eR">
-                                            <rect key="frame" x="35" y="207" width="363" height="34"/>
+                                            <rect key="frame" x="35" y="177" width="363" height="34"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="If you hide the icon you can access the preferences by starting Kawa again" id="ZP5-V3-u7u">
                                                 <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -158,7 +158,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-xa-7TO">
-                                            <rect key="frame" x="16" y="170" width="382" height="18"/>
+                                            <rect key="frame" x="16" y="140" width="382" height="18"/>
                                             <buttonCell key="cell" type="check" title="Launch Kawa on startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Hpx-WQ-b8B">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -169,6 +169,13 @@
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13u-Dv-ipW">
+                                <rect key="frame" x="20" y="18" width="102" height="25"/>
+                                <buttonCell key="cell" type="roundTextured" title="Quit Kawa" bezelStyle="texturedRounded" alignment="center" borderStyle="border" inset="2" id="sIC-mE-B6u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>
