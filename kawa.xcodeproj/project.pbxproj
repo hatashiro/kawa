@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18FD75548CB298B407481E7E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1FC3D33785203B5197A36E /* libPods.a */; };
 		CC1FEF6F1B685FD3005E9BC8 /* ShortcutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */; };
+		CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4065BD1B6D334B000E1E87 /* Settings.swift */; };
 		CC4181681B6CB3CB007DA794 /* SystemSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */; };
 		CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */; };
 		CC69E0781B66415300A92F58 /* ShortcutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0771B66415300A92F58 /* ShortcutViewController.swift */; };
@@ -36,6 +37,7 @@
 		A8A68D8A270BA2034B798D68 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CC1FEF6D1B685E9A005E9BC8 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutCellView.swift; sourceTree = "<group>"; };
+		CC4065BD1B6D334B000E1E87 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingViewController.swift; sourceTree = "<group>"; };
 		CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		CC69E0771B66415300A92F58 /* ShortcutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
 				CC69E0791B6646B200A92F58 /* StatusBar.swift */,
 				CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */,
+				CC4065BD1B6D334B000E1E87 /* Settings.swift */,
 				CC69E0771B66415300A92F58 /* ShortcutViewController.swift */,
 				CC69E07B1B665A5C00A92F58 /* ShortcutTableView.swift */,
 				CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */,
@@ -293,6 +296,7 @@
 				CC69E07A1B6646B200A92F58 /* StatusBar.swift in Sources */,
 				CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
+				CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */,
 				CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */,
 				CC69E0781B66415300A92F58 /* ShortcutViewController.swift in Sources */,
 			);

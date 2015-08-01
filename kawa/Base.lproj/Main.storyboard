@@ -179,7 +179,9 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="launchOnStartupCheckbox" destination="MzF-xa-7TO" id="h6j-yS-58B"/>
                         <outlet property="quitAppButton" destination="13u-Dv-ipW" id="EEK-Sd-doA"/>
+                        <outlet property="showMenubarIconCheckbox" destination="JXT-vT-3c2" id="972-vw-teN"/>
                     </connections>
                 </viewController>
                 <customObject id="YAB-W8-ond" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
