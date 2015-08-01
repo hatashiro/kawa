@@ -9,5 +9,16 @@
 import Cocoa
 
 class SystemSettingViewController: NSViewController {
-    // TODO
+    @IBOutlet var quitAppButton: NSButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        quitAppButton.target = self
+        quitAppButton.action = Selector("quitApp:")
+    }
+
+    func quitApp(sender: AnyObject) {
+        NSApplication.sharedApplication().terminate(nil)
+    }
 }
