@@ -1,5 +1,5 @@
 //
-//  PreferenceViewController.swift
+//  ShortcutViewController.swift
 //  kawa
 //
 //  Created by noraesae on 27/07/2015.
@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class PreferenceViewController: NSViewController {
-    @IBOutlet weak var tableView: PreferenceTableView!
+class ShortcutViewController: NSViewController {
+    @IBOutlet weak var tableView: ShortcutTableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

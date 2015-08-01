@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="396" y="924"/>
         </scene>
-        <!--Preference View Controller-->
+        <!--Shortcut View Controller-->
         <scene sceneID="lOC-jq-WBP">
             <objects>
-                <viewController id="WK9-v7-Mix" customClass="PreferenceViewController" customModule="kawa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WK9-v7-Mix" customClass="ShortcutViewController" customModule="kawa" customModuleProvider="target" sceneMemberID="viewController">
                     <scrollView key="view" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="jSm-gI-Qdt">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -187,7 +187,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="PreferenceTableView" customModule="kawa" customModuleProvider="target">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="20" rowSizeStyle="automatic" headerView="5Va-Kz-KE9" viewBased="YES" id="biS-0R-WsE" customClass="ShortcutTableView" customModule="kawa" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="448" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>

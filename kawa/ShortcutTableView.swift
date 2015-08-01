@@ -1,5 +1,5 @@
 //
-//  PreferenceTableView.swift
+//  ShortcutTableView.swift
 //  kawa
 //
 //  Created by noraesae on 27/07/2015.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PreferenceTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
+class ShortcutTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return InputSourceManager.inputSources.count
     }
