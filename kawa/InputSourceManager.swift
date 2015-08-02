@@ -9,7 +9,7 @@
 import Carbon
 import Cocoa
 
-class InputSource {
+class InputSource: Equatable {
     static func getProperty<T>(source: TISInputSource, _ key: CFString) -> T? {
         let cfType = TISGetInputSourceProperty(source, key)
         if (cfType != nil) {
@@ -52,8 +52,15 @@ class InputSource {
         }
     }
 
-    func select() -> Bool {
-        return TISSelectInputSource(tisInputSource) == noErr
+    func select() {
+        if let previousInput = InputSourceManager.previousOf(self) {
+            previousInput.selectInputSource()
+            InputSourceManager.selectNext()
+        }
+    }
+
+    func selectInputSource() {
+        TISSelectInputSource(tisInputSource)
     }
 
     func getRetinaImageURL(path: NSURL) -> NSURL {
@@ -69,6 +76,10 @@ class InputSource {
     }
 }
 
+func ==(lhs: InputSource, rhs: InputSource) -> Bool {
+    return lhs.id == rhs.id
+}
+
 class InputSourceManager {
     static var inputSources: [InputSource] = []
 
@@ -80,5 +91,30 @@ class InputSourceManager {
                 (var tisInputSource) -> InputSource in
                 return InputSource(tisInputSource: tisInputSource)
             }
+    }
+
+    static func previousOf(inputSource: InputSource) -> InputSource? {
+        if let idx = find(inputSources, inputSource) {
+            let previousIdx = idx == 0 ? idx + inputSources.count - 1 : idx - 1
+            return inputSources[previousIdx]
+        } else {
+            return nil
+        }
+    }
+
+    static func selectNext() {
+        let src = CGEventSourceCreate(CGEventSourceStateID(kCGEventSourceStateHIDSystemState)).takeRetainedValue()
+
+        let down = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), true).takeRetainedValue()
+        let up = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), false).takeRetainedValue()
+
+        let flag = CGEventFlags(kCGEventFlagMaskAlternate) | CGEventFlags(kCGEventFlagMaskCommand)
+        CGEventSetFlags(down, flag);
+        CGEventSetFlags(up, flag);
+
+        let loc = CGEventTapLocation(kCGHIDEventTap)
+
+        CGEventPost(loc, down)
+        CGEventPost(loc, up)
     }
 }
