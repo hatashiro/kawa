@@ -37,6 +37,12 @@ class SystemSettingViewController: NSViewController {
     func setShowMenubarIcon(sender: AnyObject) {
         let isOn: Bool = showMenubarIconCheckbox.state == NSOnState
         Settings.set(Settings.showMenubarIcon, toValue: isOn)
+
+        if isOn {
+            StatusBar.createStatusBarItem()
+        } else {
+            StatusBar.removeStatusBarItem()
+        }
     }
 
     func setLaunchOnStartup(sender: AnyObject) {

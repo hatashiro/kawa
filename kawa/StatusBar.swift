@@ -10,24 +10,37 @@ import AppKit
 import Cocoa
 
 class StatusBar: NSObject {
-    var preferenceWindowController: PreferenceWindowController!
-    var item: NSStatusItem!
+    static var preferenceWindowController: PreferenceWindowController?
+    static let statusBar = NSStatusBar.systemStatusBar()
+    static var item: NSStatusItem? = nil
 
-    init(preferenceWindowController: PreferenceWindowController) {
-        super.init()
-
+    static func initWithPreferenceWindowController(preferenceWindowController: PreferenceWindowController) {
         self.preferenceWindowController = preferenceWindowController
-        
-        let bar = NSStatusBar.systemStatusBar()
-        item = bar.statusItemWithLength(48)
 
-        let button = item.button!
-        button.title = "Kawa"
-        button.target = self
-        button.action = Selector("action:")
+        if Settings.get(Settings.showMenubarIcon, withDefaultValue: true) {
+            createStatusBarItem()
+        }
     }
 
-    func action(sender: AnyObject) {
-        preferenceWindowController.showAndActivate(sender)
+    static func createStatusBarItem() {
+        if item == nil {
+            item = statusBar.statusItemWithLength(48)
+
+            let button = item!.button!
+            button.title = "Kawa"
+            button.target = self
+            button.action = Selector("action:")
+        }
+    }
+
+    static func action(sender: AnyObject) {
+        preferenceWindowController!.showAndActivate(sender)
+    }
+
+    static func removeStatusBarItem() {
+        if item != nil {
+            statusBar.removeStatusItem(item!)
+            item = nil
+        }
     }
 }

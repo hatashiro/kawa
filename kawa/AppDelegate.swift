@@ -11,12 +11,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var preferenceWindowController: PreferenceWindowController!
-    var statusBar: StatusBar!
-    
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         InputSourceManager.initialize()
         showPreferenceWindow()
-        statusBar = StatusBar(preferenceWindowController: preferenceWindowController)
+        StatusBar.initWithPreferenceWindowController(preferenceWindowController)
     }
 
     func showPreferenceWindow() {
