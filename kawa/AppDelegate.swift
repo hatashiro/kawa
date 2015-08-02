@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         InputSourceManager.initialize()
         showPreferenceWindow()
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
+        LaunchOnStartup.setLaunchAtStartup(Settings.get(Settings.launchOnStartup, withDefaultValue: true))
     }
 
     func showPreferenceWindow() {

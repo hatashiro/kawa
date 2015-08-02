@@ -48,5 +48,6 @@ class SystemSettingViewController: NSViewController {
     func setLaunchOnStartup(sender: AnyObject) {
         let isOn: Bool = launchOnStartupCheckbox.state == NSOnState
         Settings.set(Settings.launchOnStartup, toValue: isOn)
+        LaunchOnStartup.setLaunchAtStartup(isOn)
     }
 }
