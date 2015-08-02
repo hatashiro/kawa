@@ -11,24 +11,30 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var preferenceWindowController: PreferenceWindowController!
+    var shouldShowPreferencesInitially: Bool = true
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         InputSourceManager.initialize()
-        showPreferenceWindow()
+        preferenceWindowController = instantiatePreferenceWindowController()
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
         LaunchOnStartup.setLaunchAtStartup(Settings.get(Settings.launchOnStartup, withDefaultValue: true))
+
+        if Settings.get(Settings.showMenubarIcon, withDefaultValue: true) {
+            shouldShowPreferencesInitially = false
+        }
     }
 
-    func showPreferenceWindow() {
-        if preferenceWindowController == nil {
-            let storyboard = NSStoryboard(name: "Main", bundle: nil)!
-            preferenceWindowController = storyboard.instantiateControllerWithIdentifier("Preference") as! PreferenceWindowController
-        }
-        preferenceWindowController.showAndActivate(self)
+    func instantiatePreferenceWindowController() -> PreferenceWindowController {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)!
+        return storyboard.instantiateControllerWithIdentifier("Preference") as! PreferenceWindowController
     }
 
     func applicationDidBecomeActive(notification: NSNotification) {
-        preferenceWindowController.showAndActivate(self)
+        if (shouldShowPreferencesInitially) {
+            preferenceWindowController.showAndActivate(self)
+        } else {
+            shouldShowPreferencesInitially = true
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
