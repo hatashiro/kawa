@@ -13,6 +13,7 @@ class Settings {
 
     static let showMenubarIcon = "show-menubar-icon"
     static let launchOnStartup = "launch-on-startup"
+    static let useSimpleSwitchMethod = "use-simple-switch-method"
 
     static func get<T>(key: String, withDefaultValue: T) -> T {
         let val: T? = defaults.objectForKey(key) as? T

@@ -11,6 +11,7 @@ import Cocoa
 class SystemSettingViewController: NSViewController {
     @IBOutlet var showMenubarIconCheckbox: NSButton!
     @IBOutlet var launchOnStartupCheckbox: NSButton!
+    @IBOutlet var simpleSwitchCheckbox: NSButton!
     @IBOutlet var quitAppButton: NSButton!
 
     override func viewDidLoad() {
@@ -27,7 +28,12 @@ class SystemSettingViewController: NSViewController {
         launchOnStartupCheckbox.target = self
         launchOnStartupCheckbox.action = Selector("setLaunchOnStartup:")
         isOn = Settings.get(Settings.launchOnStartup, withDefaultValue: true)
-        launchOnStartupCheckbox.state = isOn ? NSOnState: NSOffState
+        launchOnStartupCheckbox.state = isOn ? NSOnState : NSOffState
+
+        simpleSwitchCheckbox.target = self
+        simpleSwitchCheckbox.action = Selector("setSimpleSwitchMethod:")
+        isOn = Settings.get(Settings.useSimpleSwitchMethod, withDefaultValue: false)
+        simpleSwitchCheckbox.state = isOn ? NSOnState : NSOffState
     }
 
     func quitApp(sender: AnyObject) {
@@ -49,5 +55,12 @@ class SystemSettingViewController: NSViewController {
         let isOn: Bool = launchOnStartupCheckbox.state == NSOnState
         Settings.set(Settings.launchOnStartup, toValue: isOn)
         LaunchOnStartup.setLaunchAtStartup(isOn)
+    }
+
+    func setSimpleSwitchMethod(sender: AnyObject) {
+        let isOn: Bool = simpleSwitchCheckbox.state == NSOnState
+        Settings.set(Settings.useSimpleSwitchMethod, toValue: isOn)
+
+        // TODO: use simple switch method
     }
 }
