@@ -1,0 +1,25 @@
+language: objective-c
+before_script:
+- brew update
+- brew outdated xctool || brew upgrade xctool
+- brew install carthage
+- carthage bootstrap --no-use-binaries # FIXME: Remove pending https://github.com/Carthage/Carthage/issues/465
+xcode_project: kawa.xcodeproj
+xcode_scheme: kawa
+osx_image: xcode6.4
+script:
+- "./build.sh"
+deploy:
+  provider: releases
+  api_key:
+    secure: f5UF1T/Wvdv4qxRfVIIu7+r/yKIx6JHTUBGqadi+4f2HiP6Dj5GnSgflXv8vb5PeKOYVo8t5YnHqmdJJqJRLAzQ7Y2ux6JY7yMYdxlYVvpheLW+K4IjdQwVIkRwrC45iqjMvB5mrQ7cOOI4QIQ7eGTXpPS8ojsUuWz4Gbm/yymwjfHcvY4YooJaa8i2E4/oh8antfztfbXpdCQyUQ0+qWTtyyvnCwUyQFWv8kuS9dZ1O0rFIapRps6JcWYjUkTxmlGdCc8k53FqiaF9UAtqWCSULVt/lhu/bBCKJCNT51V0ckC+MMuwIoOnW387zsQOfgEAXzqxRWxQSaQTIPvvgwArAj70+2WAdplTxFi6wqmrryxFr1csrAvhQqL0CTRRTYowVvz2s5Qo9CFyO4IeAObpo12HcM1CAeGGYRauIcStAweQRJmOapNzW+4/LkXZC+PXYDvK0jiNZM7/jHl+q5LuxQe1/eCMwT7PC5aOZClsrGjT+gVHndJzfubjNBZ/NWVofQub17B+SiW7v/NI+h5pmSj0GvPldq23vqy8QJyS5Nhz8adBZB2Yf4egyU0EGXRPtBxy94A+mU0rpBT45DvIQvZC/JqC3rJPQ/uH6hLNAWRDRxr6Lfmnqxap4xxJeJHGDSwp1azt199TBnWkM4fC/tY+W1AS7fn8l+/S4WEw=
+  file: "Kawa.zip"
+  clean_up: false
+  skip_cleanup: true
+  on:
+    repo: noraesae/kawa
+    all_branches: true
+    tags: true
+before_deploy:
+- git fetch --tags
+- zip -r Kawa Kawa.app
