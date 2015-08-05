@@ -16,6 +16,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+/kawa.xcarchive
+Kawa.app
 
 # Carthage
 #
