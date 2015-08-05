@@ -24,12 +24,15 @@ class StatusBar: NSObject {
 
     static func createStatusBarItem() {
         if item == nil {
-            item = statusBar.statusItemWithLength(48)
+            item = statusBar.statusItemWithLength(-1)
 
             let button = item!.button!
-            button.title = "Kawa"
             button.target = self
             button.action = Selector("action:")
+            button.image = NSImage(named: "StatusItemIcon")
+            button.image!.setTemplate(true)
+            button.appearsDisabled = false;
+            button.toolTip = "Click to open preferences"
         }
     }
 
