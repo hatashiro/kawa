@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient y2="1" x2="1" id="svg_9">
+   <stop offset="0" stop-opacity="0.996094" stop-color="#2b3333"/>
+   <stop offset="1" stop-opacity="0.996094" stop-color="#707f7f"/>
+  </linearGradient>
+  <linearGradient y1="0" x1="0" y2="1" x2="1" id="svg_10">
+   <stop offset="0" stop-opacity="0.996094" stop-color="#2b3333"/>
+   <stop offset="1" stop-opacity="0.992188" stop-color="#4e5b5b"/>
+  </linearGradient>
+  <linearGradient y2="1" x2="1" id="svg_11">
+   <stop offset="0" stop-color="#FFE2FF"/>
+   <stop offset="1" stop-color="#001d00"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="1026" width="1026" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse ry="450" rx="450" id="svg_1" cy="512" cx="512" stroke-width="0" stroke="#000" fill="url(#svg_10)"/>
+  <rect opacity="0.2" transform="rotate(5 512 512)" rx="25" id="svg_3" height="500" width="100" y="262.000015" x="462" stroke-width="0" stroke="#000" fill="#ffffff"/>
+  <rect opacity="0.2" transform="rotate(5 297 512)" stroke="#000" rx="25" id="svg_5" height="500" width="100" y="262.000015" x="247" stroke-width="0" fill="#ffffff"/>
+  <rect opacity="0.2" transform="rotate(5 727 512)" rx="25" id="svg_6" height="500" width="100" y="262.000015" x="677" stroke-width="0" stroke="#000" fill="#ffffff"/>
+ </g>
+</svg>
