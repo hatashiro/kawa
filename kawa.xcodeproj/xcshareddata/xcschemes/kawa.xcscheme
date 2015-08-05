@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC6D8EC71B654099005682C0"
-               BuildableName = "kawa.app"
+               BuildableName = "Kawa.app"
                BlueprintName = "kawa"
                ReferencedContainer = "container:kawa.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC6D8EC71B654099005682C0"
-            BuildableName = "kawa.app"
+            BuildableName = "Kawa.app"
             BlueprintName = "kawa"
             ReferencedContainer = "container:kawa.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC6D8EC71B654099005682C0"
-            BuildableName = "kawa.app"
+            BuildableName = "Kawa.app"
             BlueprintName = "kawa"
             ReferencedContainer = "container:kawa.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC6D8EC71B654099005682C0"
-            BuildableName = "kawa.app"
+            BuildableName = "Kawa.app"
             BlueprintName = "kawa"
             ReferencedContainer = "container:kawa.xcodeproj">
          </BuildableReference>

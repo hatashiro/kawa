@@ -58,7 +58,7 @@
 		CC69E0771B66415300A92F58 /* ShortcutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutViewController.swift; sourceTree = "<group>"; };
 		CC69E0791B6646B200A92F58 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		CC69E07B1B665A5C00A92F58 /* ShortcutTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutTableView.swift; sourceTree = "<group>"; };
-		CC6D8EC81B654099005682C0 /* kawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC6D8EC81B654099005682C0 /* Kawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6D8ECC1B654099005682C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6D8ECD1B654099005682C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC6D8ED11B654099005682C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		CC6D8EC91B654099005682C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC6D8EC81B654099005682C0 /* kawa.app */,
+				CC6D8EC81B654099005682C0 /* Kawa.app */,
 				CC6D8EDA1B654099005682C0 /* kawaTests.xctest */,
 			);
 			name = Products;
@@ -172,7 +172,7 @@
 			);
 			name = kawa;
 			productName = kawa;
-			productReference = CC6D8EC81B654099005682C0 /* kawa.app */;
+			productReference = CC6D8EC81B654099005682C0 /* Kawa.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CC6D8ED91B654099005682C0 /* kawaTests */ = {
@@ -388,7 +388,7 @@
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
 			};
 			name = Debug;
@@ -404,7 +404,7 @@
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
 			};
 			name = Release;
