@@ -31,7 +31,10 @@ Cheers!
 
 ## Demo
 
-<iframe src="https://player.vimeo.com/video/135542587?color=4183c4" width="500" height="309" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+[![demo](https://cloud.githubusercontent.com/assets/1013641/9109734/d73505e4-3c72-11e5-9c71-49cdf4a484da.gif)](http://vimeo.com/135542587)
+
+For better quality, there is a
+[video version of this demo](http://vimeo.com/135542587) on Vimeo.
 
 ## Install
 
