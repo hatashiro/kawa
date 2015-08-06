@@ -53,13 +53,13 @@ class InputSource: Equatable {
     }
 
     func select() {
-        if InputSourceManager.useSimpleSwitchMethod {
-            self.selectInputSource()
-        } else {
+        if InputSourceManager.useAdvancedSwitchMethod {
             if let previousInput = InputSourceManager.previousOf(self) {
                 previousInput.selectInputSource()
                 InputSourceManager.selectNext()
             }
+        } else {
+            self.selectInputSource()
         }
     }
 
@@ -86,7 +86,7 @@ func ==(lhs: InputSource, rhs: InputSource) -> Bool {
 
 class InputSourceManager {
     static var inputSources: [InputSource] = []
-    static var useSimpleSwitchMethod: Bool = Settings.get(Settings.useSimpleSwitchMethod, withDefaultValue: false)
+    static var useAdvancedSwitchMethod: Bool = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
 
     static func initialize() {
         let arr = TISCreateInputSourceList(nil, 0).takeUnretainedValue() as! [TISInputSource]

@@ -133,11 +133,11 @@
             <objects>
                 <viewController id="8tD-vA-uhk" customClass="SystemSettingViewController" customModule="Kawa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" id="hjE-TV-MvY">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="General Stuff" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
-                                <rect key="frame" x="17" y="187" width="416" height="113"/>
+                                <rect key="frame" x="17" y="186" width="416" height="113"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="414" height="97"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,29 +170,30 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13u-Dv-ipW">
-                                <rect key="frame" x="20" y="18" width="102" height="25"/>
+                                <rect key="frame" x="20" y="15" width="102" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" title="Quit Kawa" bezelStyle="texturedRounded" alignment="center" borderStyle="border" inset="2" id="sIC-mE-B6u">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Shortcut" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Swp-nj-dkh">
-                                <rect key="frame" x="17" y="77" width="416" height="106"/>
+                                <rect key="frame" x="17" y="58" width="416" height="124"/>
                                 <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="414" height="90"/>
+                                    <rect key="frame" x="1" y="1" width="414" height="108"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l2X-Fv-r3k">
-                                            <rect key="frame" x="16" y="64" width="382" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Use a simple method to switch input source" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TPZ-p1-Fdh">
+                                            <rect key="frame" x="16" y="82" width="382" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Use an advanced method to switch input sources" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TPZ-p1-Fdh">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWR-MR-9DI">
-                                            <rect key="frame" x="35" y="14" width="359" height="51"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The simple method improves responsiveness of input switching, but may cause problems for complex input sources like Japanese" id="cDR-Mv-Oou">
+                                            <rect key="frame" x="35" y="14" width="359" height="68"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="cDR-Mv-Oou">
                                                 <font key="font" metaFont="systemBold"/>
+                                                <string key="title">The advanced method can remove problem occuring when switching between complex input layouts such as Japanese. For the detail, please refer to README on the Kawa project page.</string>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -202,18 +203,27 @@
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yD8-rS-xQC" customClass="HyperlinkTextField" customModule="Kawa" customModuleProvider="target">
+                                <rect key="frame" x="130" y="20" width="172" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="github.com/noraesae/kawa" placeholderString="" id="78n-cW-Oy5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="launchOnStartupCheckbox" destination="MzF-xa-7TO" id="h6j-yS-58B"/>
+                        <outlet property="projectPageLink" destination="yD8-rS-xQC" id="lQZ-K9-RD1"/>
                         <outlet property="quitAppButton" destination="13u-Dv-ipW" id="EEK-Sd-doA"/>
                         <outlet property="showMenubarIconCheckbox" destination="JXT-vT-3c2" id="972-vw-teN"/>
-                        <outlet property="simpleSwitchCheckbox" destination="l2X-Fv-r3k" id="93b-Xc-toy"/>
+                        <outlet property="useAdvancedSwitchCheckbox" destination="l2X-Fv-r3k" id="qAR-Kz-Dqu"/>
                     </connections>
                 </viewController>
                 <customObject id="YAB-W8-ond" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="924"/>
+            <point key="canvasLocation" x="396" y="923.5"/>
         </scene>
         <!--Shortcut View Controller-->
         <scene sceneID="lOC-jq-WBP">
