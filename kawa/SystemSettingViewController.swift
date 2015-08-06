@@ -59,8 +59,8 @@ class SystemSettingViewController: NSViewController {
 
     func setSimpleSwitchMethod(sender: AnyObject) {
         let isOn: Bool = simpleSwitchCheckbox.state == NSOnState
+        InputSourceManager.useSimpleSwitchMethod = isOn
         Settings.set(Settings.useSimpleSwitchMethod, toValue: isOn)
 
-        // TODO: use simple switch method
     }
 }
