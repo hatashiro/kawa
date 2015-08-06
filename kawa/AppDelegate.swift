@@ -11,7 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var preferenceWindowController: PreferenceWindowController!
-    var shouldShowPreferencesInitially: Bool = true
+    var justLaunched: Bool = true
+    var launchedForTheFirstTime: Bool = Settings.get(Settings.launchedForTheFirstTime, withDefaultValue: true)
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         InputSourceManager.initialize()
@@ -19,8 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
         LaunchOnStartup.setLaunchAtStartup(Settings.get(Settings.launchOnStartup, withDefaultValue: true))
 
-        if Settings.get(Settings.showMenubarIcon, withDefaultValue: true) {
-            shouldShowPreferencesInitially = false
+        if launchedForTheFirstTime {
+            Settings.set(Settings.launchedForTheFirstTime, toValue: false)
         }
     }
 
@@ -30,10 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidBecomeActive(notification: NSNotification) {
-        if (shouldShowPreferencesInitially) {
+        if !justLaunched || launchedForTheFirstTime {
             preferenceWindowController.showAndActivate(self)
-        } else {
-            shouldShowPreferencesInitially = true
+        }
+        
+        if justLaunched {
+            justLaunched = false
         }
     }
 
