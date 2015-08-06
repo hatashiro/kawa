@@ -18,6 +18,18 @@ class ShortcutCellView: NSTableCellView {
         self.inputSource = inputSource
         shortcutKey = inputSource.id.stringByReplacingOccurrencesOfString(".", withString: "-")
         shortcutView.associatedUserDefaultsKey = shortcutKey!
+        shortcutView.shortcutValueChange = self.shortcutValueDidChanged
+        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(shortcutKey!, toAction: selectInput)
+    }
+
+    func shortcutValueDidChanged(sender: MASShortcutView!) {
+        if sender.shortcutValue == nil {
+            resetShortcutBinder()
+        }
+    }
+
+    func resetShortcutBinder() {
+        MASShortcutBinder.sharedBinder().breakBindingWithDefaultsKey(shortcutKey!)
         MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(shortcutKey!, toAction: selectInput)
     }
 
