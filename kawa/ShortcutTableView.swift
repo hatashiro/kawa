@@ -27,14 +27,14 @@ class ShortcutTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate
     }
 
     func createKeyboardCellView(tableView: NSTableView, _ inputSource: InputSource) -> NSTableCellView? {
-        var cell = tableView.makeViewWithIdentifier("KeyboardCellView", owner: self) as? NSTableCellView
+        let cell = tableView.makeViewWithIdentifier("KeyboardCellView", owner: self) as? NSTableCellView
         cell!.textField?.stringValue = inputSource.name
         cell!.imageView?.image = inputSource.icon
         return cell
     }
 
     func createShorcutCellView(tableView: NSTableView, _ inputSource: InputSource) -> ShortcutCellView? {
-        var cell = tableView.makeViewWithIdentifier("ShortcutCellView", owner: self) as? ShortcutCellView
+        let cell = tableView.makeViewWithIdentifier("ShortcutCellView", owner: self) as? ShortcutCellView
         cell?.setInputSource(inputSource)
         return cell
     }

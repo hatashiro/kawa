@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -138,7 +139,7 @@
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="General Stuff" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
                                 <rect key="frame" x="17" y="186" width="416" height="113"/>
-                                <view key="contentView">
+                                <view key="contentView" id="fmh-So-mUE">
                                     <rect key="frame" x="1" y="1" width="414" height="97"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -178,7 +179,7 @@
                             </button>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Shortcut" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Swp-nj-dkh">
                                 <rect key="frame" x="17" y="58" width="416" height="124"/>
-                                <view key="contentView">
+                                <view key="contentView" id="mod-0L-7te">
                                     <rect key="frame" x="1" y="1" width="414" height="108"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -294,7 +295,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="ShortcutCellView" id="Rmx-MO-swj" customClass="ShortcutCellView" customModule="Kawa" customModuleProvider="target">
-                                                    <rect key="frame" x="191.5" y="1" width="254" height="20"/>
+                                                    <rect key="frame" x="192" y="1" width="254" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-7B-J5s" customClass="MASShortcutView">
@@ -312,8 +313,8 @@
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ikE-By-STJ">
-                            <rect key="frame" x="1" y="117.66790354251862" width="237.5" height="16"/>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="ikE-By-STJ">
+                            <rect key="frame" x="1" y="283" width="448" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="zAK-3c-qZ8">
@@ -321,7 +322,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="5Va-Kz-KE9">
-                            <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="448" height="17"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>

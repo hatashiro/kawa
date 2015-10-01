@@ -20,13 +20,13 @@ class HyperlinkTextField: NSTextField {
     }
 
     func linkString(text: String, url: NSURL) -> NSMutableAttributedString {
-        var attrString = NSMutableAttributedString(string: text)
-        var range = NSRange(location: 0, length: attrString.length)
+        let attrString = NSMutableAttributedString(string: text)
+        let range = NSRange(location: 0, length: attrString.length)
         attrString.beginEditing()
-        attrString.addAttribute(NSLinkAttributeName, value: url.absoluteString!, range: range)
+        attrString.addAttribute(NSLinkAttributeName, value: url.absoluteString, range: range)
         attrString.addAttribute(NSFontAttributeName, value: font!, range: range)
         attrString.addAttribute(NSForegroundColorAttributeName, value: NSColor.blueColor(), range: range)
-        attrString.addAttribute(NSUnderlineStyleAttributeName, value: NSSingleUnderlineStyle, range: range)
+        attrString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle as! AnyObject, range: range)
         attrString.endEditing()
         return attrString
     }

@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func instantiatePreferenceWindowController() -> PreferenceWindowController {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)!
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateControllerWithIdentifier("Preference") as! PreferenceWindowController
     }
 
