@@ -69,7 +69,7 @@ class InputSource: Equatable {
 
     func getRetinaImageURL(path: NSURL) -> NSURL {
         var components = path.pathComponents!
-        let filename: String = components.removeLast() as! String
+        let filename: String = components.removeLast() 
         let ext: String = path.pathExtension!
         let retinaFilename = filename.stringByReplacingOccurrencesOfString("." + ext, withString: "@2x." + ext)
         return NSURL.fileURLWithPathComponents(components + [retinaFilename])!
@@ -89,17 +89,17 @@ class InputSourceManager {
     static var useAdvancedSwitchMethod: Bool = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
 
     static func initialize() {
-        let arr = TISCreateInputSourceList(nil, 0).takeUnretainedValue() as! [TISInputSource]
+        let arr = TISCreateInputSourceList(nil, false).takeUnretainedValue() as! [TISInputSource]
 
         inputSources = arr.filter(InputSource.isProperInputSource)
             .map {
-                (var tisInputSource) -> InputSource in
+                (let tisInputSource) -> InputSource in
                 return InputSource(tisInputSource: tisInputSource)
             }
     }
 
     static func previousOf(inputSource: InputSource) -> InputSource? {
-        if let idx = find(inputSources, inputSource) {
+        if let idx = inputSources.indexOf(inputSource) {
             let previousIdx = idx == 0 ? idx + inputSources.count - 1 : idx - 1
             return inputSources[previousIdx]
         } else {
@@ -108,16 +108,16 @@ class InputSourceManager {
     }
 
     static func selectNext() {
-        let src = CGEventSourceCreate(CGEventSourceStateID(kCGEventSourceStateHIDSystemState)).takeRetainedValue()
+        let src = CGEventSourceCreate(CGEventSourceStateID.HIDSystemState)!
 
-        let down = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), true).takeRetainedValue()
-        let up = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), false).takeRetainedValue()
+        let down = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), true)!
+        let up = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), false)!
 
-        let flag = CGEventFlags(kCGEventFlagMaskAlternate) | CGEventFlags(kCGEventFlagMaskCommand)
+        let flag = CGEventFlags(rawValue: CGEventFlags.MaskAlternate.rawValue | CGEventFlags.MaskCommand.rawValue)!
         CGEventSetFlags(down, flag);
         CGEventSetFlags(up, flag);
 
-        let loc = CGEventTapLocation(kCGHIDEventTap)
+        let loc = CGEventTapLocation.CGHIDEventTap
 
         CGEventPost(loc, down)
         CGEventPost(loc, up)
