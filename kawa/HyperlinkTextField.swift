@@ -26,7 +26,7 @@ class HyperlinkTextField: NSTextField {
         attrString.addAttribute(NSLinkAttributeName, value: url.absoluteString, range: range)
         attrString.addAttribute(NSFontAttributeName, value: font!, range: range)
         attrString.addAttribute(NSForegroundColorAttributeName, value: NSColor.blueColor(), range: range)
-        attrString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle as! AnyObject, range: range)
+        attrString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue as AnyObject, range: range)
         attrString.endEditing()
         return attrString
     }
