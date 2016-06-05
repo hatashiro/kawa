@@ -89,9 +89,10 @@ class InputSourceManager {
     static var useAdvancedSwitchMethod: Bool = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
 
     static func initialize() {
-        let arr = TISCreateInputSourceList(nil, false).takeUnretainedValue() as! [TISInputSource]
+        let inputSourceList_nsarray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
+        let inputSourceList = inputSourceList_nsarray as! [TISInputSource]
 
-        inputSources = arr.filter(InputSource.isProperInputSource)
+        inputSources = inputSourceList.filter(InputSource.isProperInputSource)
             .map {
                 (let tisInputSource) -> InputSource in
                 return InputSource(tisInputSource: tisInputSource)
