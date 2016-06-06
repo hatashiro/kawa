@@ -19,20 +19,20 @@ class SystemSettingViewController: NSViewController {
         super.viewDidLoad()
 
         quitAppButton.target = self
-        quitAppButton.action = Selector("quitApp:")
+        quitAppButton.action = #selector(SystemSettingViewController.quitApp(_:))
 
         showMenubarIconCheckbox.target = self
-        showMenubarIconCheckbox.action = Selector("setShowMenubarIcon:")
+        showMenubarIconCheckbox.action = #selector(SystemSettingViewController.setShowMenubarIcon(_:))
         var isOn: Bool = Settings.get(Settings.showMenubarIcon, withDefaultValue: true)
         showMenubarIconCheckbox.state = isOn ? NSOnState : NSOffState
 
         launchOnStartupCheckbox.target = self
-        launchOnStartupCheckbox.action = Selector("setLaunchOnStartup:")
+        launchOnStartupCheckbox.action = #selector(SystemSettingViewController.setLaunchOnStartup(_:))
         isOn = Settings.get(Settings.launchOnStartup, withDefaultValue: true)
         launchOnStartupCheckbox.state = isOn ? NSOnState : NSOffState
 
         useAdvancedSwitchCheckbox.target = self
-        useAdvancedSwitchCheckbox.action = Selector("useAdvancedSwitchMethod:")
+        useAdvancedSwitchCheckbox.action = #selector(SystemSettingViewController.useAdvancedSwitchMethod(_:))
         isOn = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
         useAdvancedSwitchCheckbox.state = isOn ? NSOnState : NSOffState
 
