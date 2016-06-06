@@ -69,7 +69,7 @@ class InputSource: Equatable {
 
     func getRetinaImageURL(path: NSURL) -> NSURL {
         var components = path.pathComponents!
-        let filename: String = components.removeLast() 
+        let filename: String = components.removeLast()
         let ext: String = path.pathExtension!
         let retinaFilename = filename.stringByReplacingOccurrencesOfString("." + ext, withString: "@2x." + ext)
         return NSURL.fileURLWithPathComponents(components + [retinaFilename])!
@@ -89,8 +89,8 @@ class InputSourceManager {
     static var useAdvancedSwitchMethod: Bool = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
 
     static func initialize() {
-        let inputSourceList_nsarray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
-        let inputSourceList = inputSourceList_nsarray as! [TISInputSource]
+        let inputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
+        let inputSourceList = inputSourceNSArray as! [TISInputSource]
 
         inputSources = inputSourceList.filter(InputSource.isProperInputSource)
             .map {
