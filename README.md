@@ -42,6 +42,18 @@ The prebuilt binaries can be found in [Releases](https://github.com/noraesae/kaw
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 
+## Known Issues
+
+There is a known bug in the TIS library of macOS that switching keyboard
+layouts doesn't work well when done programmingly, especially between complex
+input sources like [CJK](https://en.wikipedia.org/wiki/CJK_characters).
+Kawa once tried to resolve this problem using hacky workaround, which caused
+more bugs, did more bad than good. The option is removed in v0.1.3, and I
+decide to wait for the fix from macOS.
+
+However, if a nice workaround is found, please upload it as an issue or PR. I
+would be happy to consider adopting it.
+
 ## Preferences
 
 Preferences can be found in a preference window. The window can be opened by
@@ -54,17 +66,6 @@ clicking the menubar icon of Kawa or launching Kawa again.
     hidden and the preference window can be opened when launching Kawa again.
   * **`Launch Kawa on startup`**  
     Add Kawa to startup items.
-* Shortcut
-  * **`Use an advanced method to switch input sources`**  
-    There is a known problem when programminly switching between complex input
-    sources such as [CJK](https://en.wikipedia.org/wiki/CJK_characters)
-    layouts. This option enables a workaround to fix the problem. In other words,
-    if you find no problem using Kawa, please ignore this option. To use this
-    option, the global shortcut of `Select next source in Input menu` should be
-    set to `Alt+Command+Space`, which may be set by default. Unless the
-    shortcut is set correctly and Kawa works as intended, you can check if the
-    shortcut is set correctly in `System Preferences > Keyboard > Shortcuts >
-    Input Sources`.
 
 ## Development
 
