@@ -13,7 +13,7 @@ class InputSource: Equatable {
     static func getProperty<T>(_ source: TISInputSource, _ key: CFString) -> T? {
         let cfType = TISGetInputSourceProperty(source, key)
         if (cfType != nil) {
-            return Unmanaged<AnyObject>.fromOpaque(OpaquePointer(cfType)!).takeUnretainedValue() as? T
+            return Unmanaged<AnyObject>.fromOpaque(cfType!).takeUnretainedValue() as? T
         } else {
             return nil
         }
@@ -72,7 +72,7 @@ class InputSource: Equatable {
         let filename: String = components.removeLast()
         let ext: String = path.pathExtension
         let retinaFilename = filename.replacingOccurrences(of: "." + ext, with: "@2x." + ext)
-        return URL.fileURL(withPathComponents: components + [retinaFilename])!
+        return NSURL.fileURL(withPathComponents: components + [retinaFilename])!
     }
 
     func getTiffImageURL(_ path: URL) -> URL {
