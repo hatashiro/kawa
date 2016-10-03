@@ -11,10 +11,10 @@ import Cocoa
 
 class StatusBar: NSObject {
     static var preferenceWindowController: PreferenceWindowController?
-    static let statusBar = NSStatusBar.systemStatusBar()
+    static let statusBar = NSStatusBar.system()
     static var item: NSStatusItem? = nil
 
-    static func initWithPreferenceWindowController(preferenceWindowController: PreferenceWindowController) {
+    static func initWithPreferenceWindowController(_ preferenceWindowController: PreferenceWindowController) {
         self.preferenceWindowController = preferenceWindowController
 
         if Settings.get(Settings.showMenubarIcon, withDefaultValue: true) {
@@ -24,7 +24,7 @@ class StatusBar: NSObject {
 
     static func createStatusBarItem() {
         if item == nil {
-            item = statusBar.statusItemWithLength(-1)
+            item = statusBar.statusItem(withLength: -1)
 
             let button = item!.button!
             button.target = self
@@ -35,7 +35,7 @@ class StatusBar: NSObject {
         }
     }
 
-    static func action(sender: AnyObject) {
+    static func action(_ sender: AnyObject) {
         preferenceWindowController!.showAndActivate(sender)
     }
 

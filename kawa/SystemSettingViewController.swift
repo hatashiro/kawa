@@ -37,15 +37,15 @@ class SystemSettingViewController: NSViewController {
         useAdvancedSwitchCheckbox.state = isOn ? NSOnState : NSOffState
 
         let urlString = projectPageLink.stringValue
-        let url = NSURL(string: "https://" + urlString)
+        let url = URL(string: "https://" + urlString)
         projectPageLink.setURL(url!)
     }
 
-    func quitApp(sender: AnyObject) {
-        NSApplication.sharedApplication().terminate(nil)
+    func quitApp(_ sender: AnyObject) {
+        NSApplication.shared().terminate(nil)
     }
 
-    func setShowMenubarIcon(sender: AnyObject) {
+    func setShowMenubarIcon(_ sender: AnyObject) {
         let isOn: Bool = showMenubarIconCheckbox.state == NSOnState
         Settings.set(Settings.showMenubarIcon, toValue: isOn)
 
@@ -56,13 +56,13 @@ class SystemSettingViewController: NSViewController {
         }
     }
 
-    func setLaunchOnStartup(sender: AnyObject) {
+    func setLaunchOnStartup(_ sender: AnyObject) {
         let isOn: Bool = launchOnStartupCheckbox.state == NSOnState
         Settings.set(Settings.launchOnStartup, toValue: isOn)
         LaunchOnStartup.setLaunchAtStartup(isOn)
     }
 
-    func useAdvancedSwitchMethod(sender: AnyObject) {
+    func useAdvancedSwitchMethod(_ sender: AnyObject) {
         let isOn: Bool = useAdvancedSwitchCheckbox.state == NSOnState
         InputSourceManager.useAdvancedSwitchMethod = isOn
         Settings.set(Settings.useAdvancedSwitchMethod, toValue: isOn)

@@ -9,19 +9,19 @@
 import Cocoa
 
 class PreferenceWindowController: NSWindowController, NSWindowDelegate {
-    func showAndActivate(sender: AnyObject?) {
+    func showAndActivate(_ sender: AnyObject?) {
         self.showWindow(sender)
         self.window?.makeKeyAndOrderFront(sender)
-        NSApp.activateIgnoringOtherApps(true)
+        NSApp.activate(ignoringOtherApps: true)
     }
 
-    func windowWillClose(notification: NSNotification) {
+    func windowWillClose(_ notification: Notification) {
         deactivate()
     }
 
     func deactivate() {
         // focus an application owning the menu bar
-        let workspace = NSWorkspace.sharedWorkspace()
-        workspace.menuBarOwningApplication?.activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
+        let workspace = NSWorkspace.shared()
+        workspace.menuBarOwningApplication?.activate(options: NSApplicationActivationOptions.activateIgnoringOtherApps)
     }
 }

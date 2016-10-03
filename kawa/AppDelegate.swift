@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var justLaunched: Bool = true
     var launchedForTheFirstTime: Bool = Settings.get(Settings.launchedForTheFirstTime, withDefaultValue: true)
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         InputSourceManager.initialize()
         preferenceWindowController = instantiatePreferenceWindowController()
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
@@ -27,10 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func instantiatePreferenceWindowController() -> PreferenceWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateControllerWithIdentifier("Preference") as! PreferenceWindowController
+        return storyboard.instantiateController(withIdentifier: "Preference") as! PreferenceWindowController
     }
 
-    func applicationDidBecomeActive(notification: NSNotification) {
+    func applicationDidBecomeActive(_ notification: Notification) {
         if !justLaunched || launchedForTheFirstTime {
             preferenceWindowController.showAndActivate(self)
         }
@@ -40,14 +40,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
     }
 
-    @IBAction func showPreferences(sender: AnyObject?) {
+    @IBAction func showPreferences(_ sender: AnyObject?) {
         preferenceWindowController.showAndActivate(self)
     }
 
-    @IBAction func hidePreferences(sender: AnyObject?) {
+    @IBAction func hidePreferences(_ sender: AnyObject?) {
         preferenceWindowController.close()
     }
 }

@@ -17,8 +17,8 @@ class ShortcutViewController: NSViewController {
     }
     
     func loadInputSources() {
-        tableView.setDataSource(tableView)
-        tableView.setDelegate(tableView)
+        tableView.dataSource = tableView
+        tableView.delegate = tableView
         tableView.reloadData()
     }
 }

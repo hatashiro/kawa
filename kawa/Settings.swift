@@ -9,15 +9,15 @@
 import Cocoa
 
 class Settings {
-    static let defaults = NSUserDefaults.standardUserDefaults()
+    static let defaults = UserDefaults.standard
 
     static let showMenubarIcon = "show-menubar-icon"
     static let launchOnStartup = "launch-on-startup"
     static let useAdvancedSwitchMethod = "use-advanced-switch-method"
     static let launchedForTheFirstTime = "launched-for-the-first-time"
 
-    static func get<T>(key: String, withDefaultValue: T) -> T {
-        let val: T? = defaults.objectForKey(key) as? T
+    static func get<T>(_ key: String, withDefaultValue: T) -> T {
+        let val: T? = defaults.object(forKey: key) as? T
         if val != nil {
             return val!
         } else {
@@ -25,8 +25,8 @@ class Settings {
         }
     }
 
-    static func set<T>(key: String, toValue: T) {
-        defaults.setObject((toValue as! AnyObject), forKey: key)
+    static func set<T>(_ key: String, toValue: T) {
+        defaults.set((toValue as AnyObject), forKey: key)
         defaults.synchronize()
     }
 }

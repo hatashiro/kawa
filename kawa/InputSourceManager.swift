@@ -10,16 +10,16 @@ import Carbon
 import Cocoa
 
 class InputSource: Equatable {
-    static func getProperty<T>(source: TISInputSource, _ key: CFString) -> T? {
+    static func getProperty<T>(_ source: TISInputSource, _ key: CFString) -> T? {
         let cfType = TISGetInputSourceProperty(source, key)
         if (cfType != nil) {
-            return Unmanaged<AnyObject>.fromOpaque(COpaquePointer(cfType)).takeUnretainedValue() as? T
+            return Unmanaged<AnyObject>.fromOpaque(OpaquePointer(cfType)!).takeUnretainedValue() as? T
         } else {
             return nil
         }
     }
 
-    static func isProperInputSource(source: TISInputSource) -> Bool {
+    static func isProperInputSource(_ source: TISInputSource) -> Bool {
         let category: String = getProperty(source, kTISPropertyInputSourceCategory)!
         let selectable: Bool = getProperty(source, kTISPropertyInputSourceIsSelectCapable)!
         return category == (kTISCategoryKeyboardInputSource as String) && selectable
@@ -35,17 +35,17 @@ class InputSource: Equatable {
         self.id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
         self.name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
 
-        let imageURL: NSURL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
+        let imageURL: URL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
         if imageURL != nil {
-            self.icon = NSImage(contentsOfURL: getRetinaImageURL(imageURL!))
+            self.icon = NSImage(contentsOf: getRetinaImageURL(imageURL!))
             if self.icon == nil {
-                self.icon = NSImage(contentsOfURL: getTiffImageURL(imageURL!))
+                self.icon = NSImage(contentsOf: getTiffImageURL(imageURL!))
                 if self.icon == nil {
-                    self.icon = NSImage(contentsOfURL: imageURL!)
+                    self.icon = NSImage(contentsOf: imageURL!)
                 }
             }
         } else {
-            let iconRef: IconRef? = COpaquePointer(TISGetInputSourceProperty(tisInputSource, kTISPropertyIconRef))
+            let iconRef: IconRef? = OpaquePointer(TISGetInputSourceProperty(tisInputSource, kTISPropertyIconRef))
             if iconRef != nil {
                 self.icon = NSImage(iconRef: iconRef!)
             }
@@ -67,16 +67,16 @@ class InputSource: Equatable {
         TISSelectInputSource(tisInputSource)
     }
 
-    func getRetinaImageURL(path: NSURL) -> NSURL {
-        var components = path.pathComponents!
+    func getRetinaImageURL(_ path: URL) -> URL {
+        var components = path.pathComponents
         let filename: String = components.removeLast()
-        let ext: String = path.pathExtension!
-        let retinaFilename = filename.stringByReplacingOccurrencesOfString("." + ext, withString: "@2x." + ext)
-        return NSURL.fileURLWithPathComponents(components + [retinaFilename])!
+        let ext: String = path.pathExtension
+        let retinaFilename = filename.replacingOccurrences(of: "." + ext, with: "@2x." + ext)
+        return URL.fileURL(withPathComponents: components + [retinaFilename])!
     }
 
-    func getTiffImageURL(path: NSURL) -> NSURL {
-        return path.URLByDeletingPathExtension!.URLByAppendingPathExtension("tiff")
+    func getTiffImageURL(_ path: URL) -> URL {
+        return path.deletingPathExtension().appendingPathExtension("tiff")
     }
 }
 
@@ -94,13 +94,13 @@ class InputSourceManager {
 
         inputSources = inputSourceList.filter(InputSource.isProperInputSource)
             .map {
-                (let tisInputSource) -> InputSource in
+                (tisInputSource) -> InputSource in
                 return InputSource(tisInputSource: tisInputSource)
             }
     }
 
-    static func previousOf(inputSource: InputSource) -> InputSource? {
-        if let idx = inputSources.indexOf(inputSource) {
+    static func previousOf(_ inputSource: InputSource) -> InputSource? {
+        if let idx = inputSources.index(of: inputSource) {
             let previousIdx = idx == 0 ? idx + inputSources.count - 1 : idx - 1
             return inputSources[previousIdx]
         } else {
@@ -109,18 +109,18 @@ class InputSourceManager {
     }
 
     static func selectNext() {
-        let src = CGEventSourceCreate(CGEventSourceStateID.HIDSystemState)!
+        let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
-        let down = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), true)!
-        let up = CGEventCreateKeyboardEvent(src, CGKeyCode(kVK_Space), false)!
+        let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: true)!
+        let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: false)!
 
-        let flag = CGEventFlags(rawValue: CGEventFlags.MaskAlternate.rawValue | CGEventFlags.MaskCommand.rawValue)!
-        CGEventSetFlags(down, flag);
-        CGEventSetFlags(up, flag);
+        let flag = CGEventFlags(rawValue: CGEventFlags.maskAlternate.rawValue | CGEventFlags.maskCommand.rawValue)
+        down.flags = flag;
+        up.flags = flag;
 
-        let loc = CGEventTapLocation.CGHIDEventTap
+        let loc = CGEventTapLocation.cghidEventTap
 
-        CGEventPost(loc, down)
-        CGEventPost(loc, up)
+        down.post(tap: loc)
+        up.post(tap: loc)
     }
 }

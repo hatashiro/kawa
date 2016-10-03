@@ -9,11 +9,11 @@
 import Cocoa
 
 class ShortcutTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return InputSourceManager.inputSources.count
     }
 
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let identifier = tableColumn?.identifier
         let inputSource = InputSourceManager.inputSources[row]
 
@@ -26,15 +26,15 @@ class ShortcutTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate
         return nil
     }
 
-    func createKeyboardCellView(tableView: NSTableView, _ inputSource: InputSource) -> NSTableCellView? {
-        let cell = tableView.makeViewWithIdentifier("KeyboardCellView", owner: self) as? NSTableCellView
+    func createKeyboardCellView(_ tableView: NSTableView, _ inputSource: InputSource) -> NSTableCellView? {
+        let cell = tableView.make(withIdentifier: "KeyboardCellView", owner: self) as? NSTableCellView
         cell!.textField?.stringValue = inputSource.name
         cell!.imageView?.image = inputSource.icon
         return cell
     }
 
-    func createShorcutCellView(tableView: NSTableView, _ inputSource: InputSource) -> ShortcutCellView? {
-        let cell = tableView.makeViewWithIdentifier("ShortcutCellView", owner: self) as? ShortcutCellView
+    func createShorcutCellView(_ tableView: NSTableView, _ inputSource: InputSource) -> ShortcutCellView? {
+        let cell = tableView.make(withIdentifier: "ShortcutCellView", owner: self) as? ShortcutCellView
         cell?.setInputSource(inputSource)
         return cell
     }
