@@ -53,17 +53,6 @@ class InputSource: Equatable {
     }
 
     func select() {
-        if InputSourceManager.useAdvancedSwitchMethod {
-            if let previousInput = InputSourceManager.previousOf(self) {
-                previousInput.selectInputSource()
-                InputSourceManager.selectNext()
-            }
-        } else {
-            self.selectInputSource()
-        }
-    }
-
-    func selectInputSource() {
         TISSelectInputSource(tisInputSource)
     }
 
@@ -86,7 +75,6 @@ func ==(lhs: InputSource, rhs: InputSource) -> Bool {
 
 class InputSourceManager {
     static var inputSources: [InputSource] = []
-    static var useAdvancedSwitchMethod: Bool = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
 
     static func initialize() {
         let inputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
@@ -98,23 +86,20 @@ class InputSourceManager {
                 return InputSource(tisInputSource: tisInputSource)
             }
     }
-
-    static func previousOf(_ inputSource: InputSource) -> InputSource? {
-        if let idx = inputSources.index(of: inputSource) {
-            let previousIdx = idx == 0 ? idx + inputSources.count - 1 : idx - 1
-            return inputSources[previousIdx]
-        } else {
-            return nil
-        }
+    
+    static func tweak() {
+        selectPrevious()
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(selectPrevious), userInfo: nil, repeats: false)
     }
 
-    static func selectNext() {
+    @objc
+    static func selectPrevious() {
         let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
         let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: true)!
         let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: false)!
 
-        let flag = CGEventFlags(rawValue: CGEventFlags.maskAlternate.rawValue | CGEventFlags.maskCommand.rawValue)
+        let flag = CGEventFlags(rawValue: CGEventFlags.maskShift.rawValue | CGEventFlags.maskCommand.rawValue)
         down.flags = flag;
         up.flags = flag;
 

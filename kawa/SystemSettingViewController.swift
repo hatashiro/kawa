@@ -11,7 +11,6 @@ import Cocoa
 class SystemSettingViewController: NSViewController {
     @IBOutlet var showMenubarIconCheckbox: NSButton!
     @IBOutlet var launchOnStartupCheckbox: NSButton!
-    @IBOutlet var useAdvancedSwitchCheckbox: NSButton!
     @IBOutlet var quitAppButton: NSButton!
     @IBOutlet var projectPageLink: HyperlinkTextField!
 
@@ -30,11 +29,6 @@ class SystemSettingViewController: NSViewController {
         launchOnStartupCheckbox.action = #selector(SystemSettingViewController.setLaunchOnStartup(_:))
         isOn = Settings.get(Settings.launchOnStartup, withDefaultValue: true)
         launchOnStartupCheckbox.state = isOn ? NSOnState : NSOffState
-
-        useAdvancedSwitchCheckbox.target = self
-        useAdvancedSwitchCheckbox.action = #selector(SystemSettingViewController.useAdvancedSwitchMethod(_:))
-        isOn = Settings.get(Settings.useAdvancedSwitchMethod, withDefaultValue: false)
-        useAdvancedSwitchCheckbox.state = isOn ? NSOnState : NSOffState
 
         let urlString = projectPageLink.stringValue
         let url = URL(string: "https://" + urlString)
@@ -60,11 +54,5 @@ class SystemSettingViewController: NSViewController {
         let isOn: Bool = launchOnStartupCheckbox.state == NSOnState
         Settings.set(Settings.launchOnStartup, toValue: isOn)
         LaunchOnStartup.setLaunchAtStartup(isOn)
-    }
-
-    func useAdvancedSwitchMethod(_ sender: AnyObject) {
-        let isOn: Bool = useAdvancedSwitchCheckbox.state == NSOnState
-        InputSourceManager.useAdvancedSwitchMethod = isOn
-        Settings.set(Settings.useAdvancedSwitchMethod, toValue: isOn)
     }
 }
