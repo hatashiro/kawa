@@ -11,6 +11,7 @@ import Cocoa
 class SystemSettingViewController: NSViewController {
     @IBOutlet var showMenubarIconCheckbox: NSButton!
     @IBOutlet var launchOnStartupCheckbox: NSButton!
+    @IBOutlet weak var showNotificationCheckbox: NSButton!
     @IBOutlet var quitAppButton: NSButton!
     @IBOutlet var projectPageLink: HyperlinkTextField!
 
@@ -22,13 +23,16 @@ class SystemSettingViewController: NSViewController {
 
         showMenubarIconCheckbox.target = self
         showMenubarIconCheckbox.action = #selector(SystemSettingViewController.setShowMenubarIcon(_:))
-        var isOn: Bool = Settings.get(Settings.showMenubarIcon, withDefaultValue: true)
+        var isOn: Bool = Settings.get(.showMenubarIcon, withDefaultValue: true)
         showMenubarIconCheckbox.state = isOn ? NSOnState : NSOffState
 
         launchOnStartupCheckbox.target = self
         launchOnStartupCheckbox.action = #selector(SystemSettingViewController.setLaunchOnStartup(_:))
-        isOn = Settings.get(Settings.launchOnStartup, withDefaultValue: true)
+        isOn = Settings.get(.launchOnStartup, withDefaultValue: true)
         launchOnStartupCheckbox.state = isOn ? NSOnState : NSOffState
+
+        isOn = Settings.get(.showNotification, withDefaultValue: true)
+        showNotificationCheckbox.state = isOn ? NSOnState : NSOffState
 
         let urlString = projectPageLink.stringValue
         let url = URL(string: "https://" + urlString)
@@ -41,7 +45,7 @@ class SystemSettingViewController: NSViewController {
 
     func setShowMenubarIcon(_ sender: AnyObject) {
         let isOn: Bool = showMenubarIconCheckbox.state == NSOnState
-        Settings.set(Settings.showMenubarIcon, toValue: isOn)
+        Settings.set(.showMenubarIcon, toValue: isOn)
 
         if isOn {
             StatusBar.createStatusBarItem()
@@ -52,7 +56,11 @@ class SystemSettingViewController: NSViewController {
 
     func setLaunchOnStartup(_ sender: AnyObject) {
         let isOn: Bool = launchOnStartupCheckbox.state == NSOnState
-        Settings.set(Settings.launchOnStartup, toValue: isOn)
+        Settings.set(.launchOnStartup, toValue: isOn)
         LaunchOnStartup.setLaunchAtStartup(isOn)
+    }
+
+    @IBAction func showNotification(_ sender: NSButton) {
+        Settings.set(.showNotification, toValue: sender.state == NSOnState)
     }
 }

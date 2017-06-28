@@ -11,12 +11,15 @@ import Cocoa
 class Settings {
     static let defaults = UserDefaults.standard
 
-    static let showMenubarIcon = "show-menubar-icon"
-    static let launchOnStartup = "launch-on-startup"
-    static let launchedForTheFirstTime = "launched-for-the-first-time"
+    enum Setting: String {
+        case showMenubarIcon = "show-menubar-icon"
+        case launchOnStartup = "launch-on-startup"
+        case showNotification = "show-notification"
+        case launchedForTheFirstTime = "launched-for-the-first-time"
+    }
 
-    static func get<T>(_ key: String, withDefaultValue: T) -> T {
-        let val: T? = defaults.object(forKey: key) as? T
+    static func get<T>(_ key: Setting, withDefaultValue: T) -> T {
+        let val: T? = defaults.object(forKey: key.rawValue) as? T
         if val != nil {
             return val!
         } else {
@@ -24,8 +27,8 @@ class Settings {
         }
     }
 
-    static func set<T>(_ key: String, toValue: T) {
-        defaults.set((toValue as AnyObject), forKey: key)
+    static func set<T>(_ key: Setting, toValue: T) {
+        defaults.set((toValue as AnyObject), forKey: key.rawValue)
         defaults.synchronize()
     }
 }
