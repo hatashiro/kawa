@@ -17,7 +17,7 @@ class StatusBar: NSObject {
     static func initWithPreferenceWindowController(_ preferenceWindowController: PreferenceWindowController) {
         self.preferenceWindowController = preferenceWindowController
 
-        if Settings.get(Settings.showMenubarIcon, withDefaultValue: true) {
+        if Settings.get(.showMenubarIcon, withDefaultValue: true) {
             createStatusBarItem()
         }
     }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -138,14 +139,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="General Stuff" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
-                                <rect key="frame" x="17" y="166" width="416" height="113"/>
+                                <rect key="frame" x="17" y="138" width="416" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="fmh-So-mUE">
-                                    <rect key="frame" x="1" y="1" width="414" height="97"/>
+                                    <rect key="frame" x="1" y="1" width="414" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-vT-3c2">
-                                            <rect key="frame" x="16" y="71" width="382" height="18"/>
+                                            <rect key="frame" x="16" y="99" width="382" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show Menubar Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -153,7 +154,7 @@
                                             </buttonCell>
                                         </button>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zub-x4-8eR">
-                                            <rect key="frame" x="35" y="36" width="363" height="34"/>
+                                            <rect key="frame" x="35" y="64" width="363" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="If you hide the icon you can access the preferences by starting Kawa again" id="ZP5-V3-u7u">
                                                 <font key="font" metaFont="systemBold"/>
@@ -162,12 +163,23 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-xa-7TO">
-                                            <rect key="frame" x="16" y="12" width="382" height="18"/>
+                                            <rect key="frame" x="16" y="40" width="382" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Launch Kawa on startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Hpx-WQ-b8B">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ix0-UJ-v3V">
+                                            <rect key="frame" x="16" y="20" width="382" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Show notification on input source change" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qfa-bZ-zps">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="showNotification:" target="8tD-vA-uhk" id="mcp-CO-SfQ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -196,6 +208,7 @@
                         <outlet property="projectPageLink" destination="yD8-rS-xQC" id="lQZ-K9-RD1"/>
                         <outlet property="quitAppButton" destination="13u-Dv-ipW" id="EEK-Sd-doA"/>
                         <outlet property="showMenubarIconCheckbox" destination="JXT-vT-3c2" id="972-vw-teN"/>
+                        <outlet property="showNotificationCheckbox" destination="Ix0-UJ-v3V" id="HxT-bb-QrP"/>
                     </connections>
                 </viewController>
                 <customObject id="YAB-W8-ond" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -12,16 +12,16 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     var preferenceWindowController: PreferenceWindowController!
     var justLaunched: Bool = true
-    var launchedForTheFirstTime: Bool = Settings.get(Settings.launchedForTheFirstTime, withDefaultValue: true)
+    var launchedForTheFirstTime: Bool = Settings.get(.launchedForTheFirstTime, withDefaultValue: true)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         InputSourceManager.initialize()
         preferenceWindowController = instantiatePreferenceWindowController()
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
-        LaunchOnStartup.setLaunchAtStartup(Settings.get(Settings.launchOnStartup, withDefaultValue: true))
+        LaunchOnStartup.setLaunchAtStartup(Settings.get(.launchOnStartup, withDefaultValue: true))
 
         if launchedForTheFirstTime {
-            Settings.set(Settings.launchedForTheFirstTime, toValue: false)
+            Settings.set(.launchedForTheFirstTime, toValue: false)
         }
     }
 
