@@ -42,17 +42,25 @@ The prebuilt binaries can be found in [Releases](https://github.com/noraesae/kaw
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 
-## Known Issues
+## For CJK input sources
 
 There is a known bug in the TIS library of macOS that switching keyboard
 layouts doesn't work well when done programmingly, especially between complex
 input sources like [CJK](https://en.wikipedia.org/wiki/CJK_characters).
-Kawa once tried to resolve this problem using hacky workaround, which caused
-more bugs, did more bad than good. The option is removed in v0.1.3, and I
-decide to wait for the fix from macOS.
 
-However, if a nice workaround is found, please upload it as an issue or PR. I
-would be happy to consider adopting it.
+Kawa workarounded this bug by programmingly doing the followings:
+
+- Select a target input source
+- If the source is CJK
+    - Switch to the first non-CJK input source
+    - Wait for `0.05`
+    - Return to the target input source by sending `Select the previous input source` shortcut
+
+Thus, to activate the workaround above, the following restrictions should meet.
+
+1. There is at least one non-CJK input source in the input source list
+2. The `Select the previous input source` shortcut should be <kbd>⌥⌘Space</kbd>
+    - It can be set in **System Preferences** > **Keyboard** > **Shortcuts** > **Input Sources**
 
 ## Preferences
 
