@@ -31,7 +31,7 @@ class SystemSettingViewController: NSViewController {
         isOn = Settings.get(.launchOnStartup, withDefaultValue: true)
         launchOnStartupCheckbox.state = isOn ? NSOnState : NSOffState
 
-        isOn = Settings.get(.showNotification, withDefaultValue: true)
+        isOn = Settings.get(.showNotification, withDefaultValue: false)
         showNotificationCheckbox.state = isOn ? NSOnState : NSOffState
 
         let urlString = projectPageLink.stringValue
