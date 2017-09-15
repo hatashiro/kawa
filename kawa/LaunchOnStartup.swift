@@ -48,20 +48,19 @@ class LaunchOnStartup {
             ).takeRetainedValue() as LSSharedFileList?
         if loginItemsRef != nil {
             if !alreadyExists && shouldLaunch {
-                if let appUrl : CFURL = URL(fileURLWithPath: Bundle.main.bundlePath) as CFURL? {
-                    LSSharedFileListInsertItemURL(
-                        loginItemsRef,
-                        itemReferences.lastReference,
-                        nil,
-                        nil,
-                        appUrl,
-                        nil,
-                        nil
-                    )
-                }
+                let appUrl = URL(fileURLWithPath: Bundle.main.bundlePath) as CFURL
+                LSSharedFileListInsertItemURL(
+                    loginItemsRef,
+                    itemReferences.lastReference,
+                    nil,
+                    nil,
+                    appUrl,
+                    nil,
+                    nil
+                )
             } else if alreadyExists && !shouldLaunch {
                 if let itemRef = itemReferences.existingReference {
-                    LSSharedFileListItemRemove(loginItemsRef,itemRef);
+                    LSSharedFileListItemRemove(loginItemsRef, itemRef);
                 }
             }
         }
