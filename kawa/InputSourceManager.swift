@@ -55,7 +55,15 @@ class InputSource: Equatable {
     }
 
     func select() {
-        TISSelectInputSource(tisInputSource)
+        let langs = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)! as Array<String>
+
+        if langs.contains(where: { $0 == "ko" || $0 == "ja" || $0.hasPrefix("zh") }) {
+            // Workaround for TIS CJK layout bug:
+            // FIXME: when it's CJK, select English first and then return
+            print("CJK")
+        } else {
+            TISSelectInputSource(tisInputSource)
+        }
     }
 
     func getRetinaImageURL(_ path: URL) -> URL {
