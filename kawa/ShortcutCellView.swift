@@ -3,7 +3,8 @@
 //  kawa
 //
 //  Created by noraesae on 29/07/2015.
-//  Copyright (c) 2015 noraesae. All rights reserved.
+//  Copyright (c) 2015-2017 noraesae and project contributors.
+//  Licensed under the MIT License.
 //
 
 import Cocoa
@@ -38,7 +39,7 @@ class ShortcutCellView: NSTableCellView {
         inputSource.select()
         showNotification(inputSource.name, icon: inputSource.icon)
     }
-    
+
     func showNotification(_ message: String, icon: NSImage?) {
         guard Settings.get(.showNotification, withDefaultValue: true) else { return }
         let notification = NSUserNotification()

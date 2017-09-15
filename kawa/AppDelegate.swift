@@ -3,7 +3,8 @@
 //  kawa
 //
 //  Created by noraesae on 27/07/2015.
-//  Copyright (c) 2015 noraesae. All rights reserved.
+//  Copyright (c) 2015-2017 noraesae and project contributors.
+//  Licensed under the MIT License.
 //
 
 import Cocoa
@@ -34,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !justLaunched || launchedForTheFirstTime {
             preferenceWindowController.showAndActivate(self)
         }
-        
+
         if justLaunched {
             justLaunched = false
         }
