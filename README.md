@@ -42,22 +42,22 @@ The prebuilt binaries can be found in [Releases](https://github.com/noraesae/kaw
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 
-## For CJK input sources
+## For CJKV input sources
 
 There is a known bug in the TIS library of macOS that switching keyboard
 layouts doesn't work well when done programmatically, especially between complex
-input sources like [CJK](https://en.wikipedia.org/wiki/CJK_characters).
+input sources like [CJKV](https://en.wikipedia.org/wiki/CJK_characters).
 
 Kawa workarounded this bug by programmatically doing the followings:
 
 - Select a target input source
-- If the source is CJK
-    - Switch to the first non-CJK input source
+- If the source is CJKV
+    - Switch to the first non-CJKV input source
     - Return to the target input source by sending `Select the previous input source` shortcut
 
 Thus, to activate the workaround above, the following restrictions should meet.
 
-1. There is at least one non-CJK input source in the input source list
+1. There is at least one non-CJKV input source in the input source list
 2. The `Select the previous input source` shortcut should be enabled and set to something
     - It can be set in **System Preferences** > **Keyboard** > **Shortcuts** > **Input Sources**
 
