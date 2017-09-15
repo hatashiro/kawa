@@ -61,12 +61,12 @@ class InputSource: Equatable {
     func select() {
         TISSelectInputSource(tisInputSource)
 
-        if isCJK {
+        if isCJK, let selectPreviousShortcut = InputSourceManager.getSelectPreviousShortcut() {
             // Workaround for TIS CJK layout bug:
             // when it's CJK, select nonCJK input first and then return
             if let nonCJK = InputSourceManager.nonCJKSource() {
                 nonCJK.select()
-                InputSourceManager.selectPrevious()
+                InputSourceManager.selectPrevious(shortcut: selectPreviousShortcut)
             }
         }
     }
@@ -106,13 +106,16 @@ class InputSourceManager {
         return inputSources.first(where: { !$0.isCJK })
     }
 
-    static func selectPrevious() {
+    static func selectPrevious(shortcut: (Int, UInt64)) {
         let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
-        let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: true)!
-        let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: false)!
+        let rawKey = shortcut.0
+        let rawFlags = shortcut.1
 
-        let flag = CGEventFlags(rawValue: CGEventFlags.maskAlternate.rawValue | CGEventFlags.maskCommand.rawValue)
+        let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(rawKey), keyDown: true)!
+        let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(rawKey), keyDown: false)!
+
+        let flag = CGEventFlags(rawValue: rawFlags)
         down.flags = flag;
         up.flags = flag;
 
@@ -120,5 +123,32 @@ class InputSourceManager {
 
         down.post(tap: loc)
         up.post(tap: loc)
+    }
+
+    // from read-symbolichotkeys script of Karabiner
+    // github.com/tekezo/Karabiner/blob/master/src/util/read-symbolichotkeys/read-symbolichotkeys/main.m
+    static func getSelectPreviousShortcut() -> (Int, UInt64)? {
+        guard let dict = UserDefaults.standard.persistentDomain(forName: "com.apple.symbolichotkeys") else {
+            return nil
+        }
+        guard let symbolichotkeys = dict["AppleSymbolicHotKeys"] as! NSDictionary? else {
+            return nil
+        }
+        guard let symbolichotkey = symbolichotkeys["60"] as! NSDictionary? else {
+            return nil
+        }
+        if (symbolichotkey["enabled"] as! NSNumber).intValue != 1 {
+            return nil
+        }
+        guard let value = symbolichotkey["value"] as! NSDictionary? else {
+            return nil
+        }
+        guard let parameters = value["parameters"] as! NSArray? else {
+            return nil
+        }
+        return (
+            (parameters[1] as! NSNumber).intValue,
+            (parameters[2] as! NSNumber).uint64Value
+        )
     }
 }

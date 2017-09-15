@@ -58,7 +58,7 @@ Kawa workarounded this bug by programmatically doing the followings:
 Thus, to activate the workaround above, the following restrictions should meet.
 
 1. There is at least one non-CJK input source in the input source list
-2. The `Select the previous input source` shortcut should be <kbd>⌥⌘Space</kbd>
+2. The `Select the previous input source` shortcut should be enabled and set to something
     - It can be set in **System Preferences** > **Keyboard** > **Shortcuts** > **Input Sources**
 
 ## Preferences
