@@ -29,6 +29,7 @@ class InputSource: Equatable {
     let tisInputSource: TISInputSource
     let id: String
     let name: String
+    let isCJK: Bool
 
     var icon: NSImage? = nil
 
@@ -36,6 +37,9 @@ class InputSource: Equatable {
         self.tisInputSource = tisInputSource
         id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
         name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
+
+        let langs: Array<String> = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)!
+        isCJK = langs.contains(where: { $0 == "ko" || $0 == "ja" || $0.hasPrefix("zh") })
 
         let imageURL: URL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
         if imageURL != nil {
@@ -55,14 +59,16 @@ class InputSource: Equatable {
     }
 
     func select() {
-        let langs = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)! as Array<String>
+        TISSelectInputSource(tisInputSource)
 
-        if langs.contains(where: { $0 == "ko" || $0 == "ja" || $0.hasPrefix("zh") }) {
+        if isCJK {
             // Workaround for TIS CJK layout bug:
-            // FIXME: when it's CJK, select English first and then return
-            print("CJK")
-        } else {
-            TISSelectInputSource(tisInputSource)
+            // when it's CJK, select nonCJK input first and then return
+            if let nonCJK = InputSourceManager.nonCJKSource() {
+                nonCJK.select()
+                Thread.sleep(forTimeInterval: 0.05)
+                InputSourceManager.selectPrevious()
+            }
         }
     }
 
@@ -97,19 +103,17 @@ class InputSourceManager {
             }
     }
     
-    static func tweak() {
-        selectPrevious()
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(selectPrevious), userInfo: nil, repeats: false)
+    static func nonCJKSource() -> InputSource? {
+        return inputSources.first(where: { !$0.isCJK })
     }
 
-    @objc
     static func selectPrevious() {
         let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
         let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: true)!
         let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(kVK_Space), keyDown: false)!
 
-        let flag = CGEventFlags(rawValue: CGEventFlags.maskShift.rawValue | CGEventFlags.maskCommand.rawValue)
+        let flag = CGEventFlags(rawValue: CGEventFlags.maskAlternate.rawValue | CGEventFlags.maskCommand.rawValue)
         down.flags = flag;
         up.flags = flag;
 
