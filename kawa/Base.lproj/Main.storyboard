@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="General Stuff" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
+                            <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Preferences" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-XJ-miL">
                                 <rect key="frame" x="17" y="138" width="416" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="fmh-So-mUE">
@@ -148,7 +148,7 @@
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-vT-3c2">
                                             <rect key="frame" x="16" y="99" width="382" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Show Menubar Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
+                                            <buttonCell key="cell" type="check" title="Show menubar icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -156,7 +156,7 @@
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zub-x4-8eR">
                                             <rect key="frame" x="35" y="64" width="363" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="If you hide the icon you can access the preferences by starting Kawa again" id="ZP5-V3-u7u">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="When the icon is hidden, Kawa can be accessed by launching it again" id="ZP5-V3-u7u">
                                                 <font key="font" metaFont="systemBold"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
