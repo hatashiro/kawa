@@ -1,23 +1,8 @@
 language: objective-c
 xcode_project: kawa.xcodeproj
 xcode_scheme: kawa
-osx_image: xcode8
+osx_image: xcode8.3
 before_script:
 - carthage bootstrap --no-use-binaries
 script:
-- "./build.sh"
-deploy:
-  provider: releases
-  api_key:
-    secure: Jy62GurNiFjEeP0fyPCVfTY1HGoaK4/c61F7311Lhiqf/VYkpNKDnfTziZS10oWfoq5eQnBdYqwLcVcDSSIL5D8o4Cu+hx7GpdE4qYBBaB4a9mxzbbIWVRbjBMQQkao6Gbx6lrf3MLZrc0b/Tyv932JUaUaLQpIcJqnoEaBvhd9J4+neJxcmYlq4QwQHmtbjTI9EMdRfDt5nt+v0aBrRdIACDFfzGSRaI+o/GSl3b9qIz2DjMArf4dF6VeNQeVGyq1VdwpExbKu2EL1jWu4noe8MPZzS9Kk/WjGiRT9fW39N2apOMvlO281t5DxkZYhYSuIPOl40AMU+0Lun9tZko7D+a8Q4yf2XaO4xD5ipKDU7trCP+hC8sZDM18MPwxelmg0uxj9w7wZRw1uey0WGGIHOdq25vr1cUi35sT2kX/Hb1L9e9lXcsaOejZoqGARDmImTXFEH6PSotBaTA192maJNEh/u4t5lHy/mnLskfD17CAuneSZfWdC+uthh6mk6L5Ous+Fj5Z80YtiQWvI40OAWt0eOvOk4sYRFYs8WZZtpp6zuFSK3+ShuzxfQgW0lLfXD6wLsmmSOd6nEQjMuWT73ACz/xuE6tCS7m2hbcMvWUpgPPqxV4T1G0b0suH0B/WmZ3uVNqHR/uRbQ6pcHHf8xaM32gnKbOSQk0ErVP0E=
-  file: Kawa.zip
-  clean_up: false
-  skip_cleanup: true
-  on:
-    repo: noraesae/kawa
-    all_branches: true
-    tags: true
-before_deploy:
-- git fetch --tags
-- zip -r Kawa Kawa.app
-- rvm get head # https://github.com/travis-ci/travis-ci/issues/6307
+- xcodebuild -archivePath kawa -scheme kawa archive
