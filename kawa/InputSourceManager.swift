@@ -25,15 +25,16 @@ class InputSource: Equatable {
         return category == (kTISCategoryKeyboardInputSource as String) && selectable
     }
 
-    var tisInputSource: TISInputSource? = nil
-    var id: String = ""
-    var name: String = ""
+    let tisInputSource: TISInputSource
+    let id: String
+    let name: String
+
     var icon: NSImage? = nil
 
     init(tisInputSource: TISInputSource) {
         self.tisInputSource = tisInputSource
-        self.id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
-        self.name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
+        id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
+        name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
 
         let imageURL: URL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
         if imageURL != nil {
