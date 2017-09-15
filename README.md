@@ -53,7 +53,6 @@ Kawa workarounded this bug by programmingly doing the followings:
 - Select a target input source
 - If the source is CJK
     - Switch to the first non-CJK input source
-    - Wait for `0.05`
     - Return to the target input source by sending `Select the previous input source` shortcut
 
 Thus, to activate the workaround above, the following restrictions should meet.

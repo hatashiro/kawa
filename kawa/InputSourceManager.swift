@@ -66,7 +66,6 @@ class InputSource: Equatable {
             // when it's CJK, select nonCJK input first and then return
             if let nonCJK = InputSourceManager.nonCJKSource() {
                 nonCJK.select()
-                Thread.sleep(forTimeInterval: 0.05)
                 InputSourceManager.selectPrevious()
             }
         }
