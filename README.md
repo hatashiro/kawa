@@ -45,10 +45,10 @@ Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 ## For CJK input sources
 
 There is a known bug in the TIS library of macOS that switching keyboard
-layouts doesn't work well when done programmingly, especially between complex
+layouts doesn't work well when done programmatically, especially between complex
 input sources like [CJK](https://en.wikipedia.org/wiki/CJK_characters).
 
-Kawa workarounded this bug by programmingly doing the followings:
+Kawa workarounded this bug by programmatically doing the followings:
 
 - Select a target input source
 - If the source is CJK
