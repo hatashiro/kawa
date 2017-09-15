@@ -29,7 +29,7 @@ class InputSource: Equatable {
     let tisInputSource: TISInputSource
     let id: String
     let name: String
-    let isCJK: Bool
+    let isCJKV: Bool
 
     var icon: NSImage? = nil
 
@@ -38,8 +38,11 @@ class InputSource: Equatable {
         id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
         name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
 
-        let langs: Array<String> = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)!
-        isCJK = langs.contains(where: { $0 == "ko" || $0 == "ja" || $0.hasPrefix("zh") })
+        let lang = (
+            InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)!
+                as Array<String>
+        )[0]
+        isCJKV = lang == "ko" || lang == "ja" || lang == "vi" || lang.hasPrefix("zh")
 
         let imageURL: URL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
         if imageURL != nil {
@@ -61,11 +64,11 @@ class InputSource: Equatable {
     func select() {
         TISSelectInputSource(tisInputSource)
 
-        if isCJK, let selectPreviousShortcut = InputSourceManager.getSelectPreviousShortcut() {
-            // Workaround for TIS CJK layout bug:
-            // when it's CJK, select nonCJK input first and then return
-            if let nonCJK = InputSourceManager.nonCJKSource() {
-                nonCJK.select()
+        if isCJKV, let selectPreviousShortcut = InputSourceManager.getSelectPreviousShortcut() {
+            // Workaround for TIS CJKV layout bug:
+            // when it's CJKV, select nonCJKV input first and then return
+            if let nonCJKV = InputSourceManager.nonCJKVSource() {
+                nonCJKV.select()
                 InputSourceManager.selectPrevious(shortcut: selectPreviousShortcut)
             }
         }
@@ -102,8 +105,8 @@ class InputSourceManager {
             }
     }
     
-    static func nonCJKSource() -> InputSource? {
-        return inputSources.first(where: { !$0.isCJK })
+    static func nonCJKVSource() -> InputSource? {
+        return inputSources.first(where: { !$0.isCJKV })
     }
 
     static func selectPrevious(shortcut: (Int, UInt64)) {
