@@ -59,13 +59,19 @@ would be happy to consider adopting it.
 Preferences can be found in a preference window. The window can be opened by
 clicking the menubar icon of Kawa or launching Kawa again.
 
-* General Stuff
-  * **`Show Menubar Icon`**  
-    Show the icon of Kawa in the OS X menubar. When you click the icon, a
-    preference window will be opened. If this option is unset, the icon will be
-    hidden and the preference window can be opened when launching Kawa again.
-  * **`Launch Kawa on startup`**  
-    Add Kawa to startup items.
+### Show menubar icon
+
+Show the icon of Kawa in the OS X menubar. When you click the icon, a
+preference window will be opened. If this option is unset, the icon will be
+hidden and the preference window can be opened when launching Kawa again.
+
+### Launch Kawa on startup
+
+Add Kawa to startup items.
+
+### Show notification on input source change
+
+Show macOS notification on input source change.
 
 ## Development
 
@@ -85,22 +91,7 @@ $ git clone git@github.com:noraesae/kawa.git
 $ carthage bootstrap
 ```
 
-To open the Xcode project of Kawa:
-
-```
-$ open kawa.xcodeproj
-```
-
-You can surely open the project from Xcode.
-
-Kawa can be built with the `Product` menu in Xcode as other Xcode projects
-are built. If you prefer using command line, just run the build script.
-
-```
-$ ./build.sh
-```
-
-It will build the project and export `Kawa.app` to the project root.
+After dependency installation, you can open and build the project with Xcode.
 
 ## Help!
 
