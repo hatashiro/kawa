@@ -3,7 +3,8 @@
 //  kawa
 //
 //  Created by Yonguk Jeong on 16/09/2017.
-//  Copyright © 2017 noraesae. All rights reserved.
+//  Copyright (c) 2017 noraesae and project contributors.
+//  Licensed under the MIT License.
 //
 
 import Foundation
