@@ -11,54 +11,47 @@ import Carbon
 import Cocoa
 
 class InputSource: Equatable {
-    static func getProperty<T>(_ source: TISInputSource, _ key: CFString) -> T? {
-        let cfType = TISGetInputSourceProperty(source, key)
-        if (cfType != nil) {
-            return Unmanaged<AnyObject>.fromOpaque(cfType!).takeUnretainedValue() as? T
-        } else {
-            return nil
-        }
-    }
-
-    static func isProperInputSource(_ source: TISInputSource) -> Bool {
-        let category: String = getProperty(source, kTISPropertyInputSourceCategory)!
-        let selectable: Bool = getProperty(source, kTISPropertyInputSourceIsSelectCapable)!
-        return category == (kTISCategoryKeyboardInputSource as String) && selectable
+    static func == (lhs: InputSource, rhs: InputSource) -> Bool {
+        return lhs.id == rhs.id
     }
 
     let tisInputSource: TISInputSource
-    let id: String
-    let name: String
-    let isCJKV: Bool
+    let icon: NSImage?
 
-    var icon: NSImage? = nil
+    var id: String {
+        return tisInputSource.id
+    }
+
+    var name: String {
+        return tisInputSource.name
+    }
+
+    var isCJKV: Bool {
+        if let lang = tisInputSource.sourceLanguages.first {
+            return lang == "ko" || lang == "ja" || lang == "vi" || lang.hasPrefix("zh")
+        }
+        return false
+    }
 
     init(tisInputSource: TISInputSource) {
         self.tisInputSource = tisInputSource
-        id = InputSource.getProperty(tisInputSource, kTISPropertyInputSourceID)!
-        name = InputSource.getProperty(tisInputSource, kTISPropertyLocalizedName)!
 
-        let lang = (
-            InputSource.getProperty(tisInputSource, kTISPropertyInputSourceLanguages)!
-                as Array<String>
-        )[0]
-        isCJKV = lang == "ko" || lang == "ja" || lang == "vi" || lang.hasPrefix("zh")
+        var iconImage: NSImage? = nil
 
-        let imageURL: URL? = InputSource.getProperty(tisInputSource, kTISPropertyIconImageURL)
-        if imageURL != nil {
-            self.icon = NSImage(contentsOf: getRetinaImageURL(imageURL!))
-            if self.icon == nil {
-                self.icon = NSImage(contentsOf: getTiffImageURL(imageURL!))
-                if self.icon == nil {
-                    self.icon = NSImage(contentsOf: imageURL!)
+        if let imageURL = tisInputSource.iconImageURL {
+            for url in [imageURL.retinaImageURL, imageURL.tiffImageURL, imageURL] {
+                if let image = NSImage(contentsOf: url) {
+                    iconImage = image
+                    break
                 }
             }
-        } else {
-            let iconRef: IconRef? = OpaquePointer(TISGetInputSourceProperty(tisInputSource, kTISPropertyIconRef))
-            if iconRef != nil {
-                self.icon = NSImage(iconRef: iconRef!)
-            }
         }
+
+        if iconImage == nil, let iconRef = tisInputSource.iconRef {
+            iconImage = NSImage(iconRef: iconRef)
+        }
+
+        self.icon = iconImage
     }
 
     func select() {
@@ -73,22 +66,6 @@ class InputSource: Equatable {
             }
         }
     }
-
-    func getRetinaImageURL(_ path: URL) -> URL {
-        var components = path.pathComponents
-        let filename: String = components.removeLast()
-        let ext: String = path.pathExtension
-        let retinaFilename = filename.replacingOccurrences(of: "." + ext, with: "@2x." + ext)
-        return NSURL.fileURL(withPathComponents: components + [retinaFilename])!
-    }
-
-    func getTiffImageURL(_ path: URL) -> URL {
-        return path.deletingPathExtension().appendingPathExtension("tiff")
-    }
-}
-
-func ==(lhs: InputSource, rhs: InputSource) -> Bool {
-    return lhs.id == rhs.id
 }
 
 class InputSourceManager {
@@ -98,11 +75,9 @@ class InputSourceManager {
         let inputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
         let inputSourceList = inputSourceNSArray as! [TISInputSource]
 
-        inputSources = inputSourceList.filter(InputSource.isProperInputSource)
-            .map {
-                (tisInputSource) -> InputSource in
-                return InputSource(tisInputSource: tisInputSource)
-            }
+        inputSources = inputSourceList.filter({
+            $0.category == TISInputSource.Category.keyboardInputSource && $0.isSelectable
+        }).map { InputSource(tisInputSource: $0) }
     }
     
     static func nonCJKVSource() -> InputSource? {
@@ -153,5 +128,19 @@ class InputSourceManager {
             (parameters[1] as! NSNumber).intValue,
             (parameters[2] as! NSNumber).uint64Value
         )
+    }
+}
+
+private extension URL {
+    var retinaImageURL: URL {
+        var components = pathComponents
+        let filename: String = components.removeLast()
+        let ext: String = pathExtension
+        let retinaFilename = filename.replacingOccurrences(of: "." + ext, with: "@2x." + ext)
+        return NSURL.fileURL(withPathComponents: components + [retinaFilename])!
+    }
+
+    var tiffImageURL: URL {
+        return deletingPathExtension().appendingPathExtension("tiff")
     }
 }
