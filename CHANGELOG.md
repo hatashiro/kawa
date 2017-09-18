@@ -1,3 +1,7 @@
+## 1.0.1 (18 Sep 2017)
+
+* Make statusbar icon visible in dark UI
+
 ## 1.0.0 (16 Sep 2017)
 
 * Add an option to show macOS notification on source change (#9)
