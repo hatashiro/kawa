@@ -27,10 +27,13 @@ class StatusBar: NSObject {
         if item == nil {
             item = statusBar.statusItem(withLength: -1)
 
+            let buttonImage = NSImage(named: "StatusItemIcon")
+            buttonImage?.isTemplate = true
+
             let button = item!.button!
             button.target = self
             button.action = #selector(StatusBar.action(_:))
-            button.image = NSImage(named: "StatusItemIcon")
+            button.image = buttonImage
             button.appearsDisabled = false;
             button.toolTip = "Click to open preferences"
         }
