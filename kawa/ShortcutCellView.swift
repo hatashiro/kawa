@@ -2,8 +2,8 @@
 //  ShortcutCellView.swift
 //  kawa
 //
-//  Created by noraesae on 29/07/2015.
-//  Copyright (c) 2015-2017 noraesae and project contributors.
+//  Created by utatti on 29/07/2015.
+//  Copyright (c) 2015-2017 utatti and project contributors.
 //  Licensed under the MIT License.
 //
 

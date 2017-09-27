@@ -1,6 +1,6 @@
 ![logo](resource/png/logo.png)
 
-# Kawa [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/noraesae/kawa/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/noraesae/kawa.svg)](https://github.com/noraesae/kawa/releases) [![travis-ci](https://travis-ci.org/noraesae/kawa.svg)](https://travis-ci.org/noraesae/kawa)
+# Kawa [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/utatti/kawa/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/utatti/kawa.svg)](https://github.com/utatti/kawa/releases) [![travis-ci](https://travis-ci.org/utatti/kawa.svg)](https://travis-ci.org/utatti/kawa)
 
 ###### A better input source switcher for OS X
 
@@ -38,7 +38,7 @@ For better quality, there is a
 
 ## Install
 
-The prebuilt binaries can be found in [Releases](https://github.com/noraesae/kawa/releases).
+The prebuilt binaries can be found in [Releases](https://github.com/utatti/kawa/releases).
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 
@@ -94,7 +94,7 @@ $ brew install carthage
 To clone the Git repository of Kawa and install dependencies:
 
 ```bash
-$ git clone git@github.com:noraesae/kawa.git
+$ git clone git@github.com:utatti/kawa.git
 $ carthage bootstrap
 ```
 
@@ -111,7 +111,7 @@ carefully.
 * [Development](#development)
 
 If there's still a problem, please upload it as an issue on
-[Issues](https://github.com/noraesae/kawa/issues).
+[Issues](https://github.com/utatti/kawa/issues).
 
 ## License
 
