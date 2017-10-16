@@ -38,6 +38,15 @@ For better quality, there is a
 
 ## Install
 
+### Using [Homebrew](https://brew.sh/)
+
+```shell
+brew update
+brew cask install kawa
+```
+
+### Manually
+
 The prebuilt binaries can be found in [Releases](https://github.com/utatti/kawa/releases).
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
