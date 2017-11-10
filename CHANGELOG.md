@@ -1,3 +1,7 @@
+## 1.1.0 (10 Nov 2017)
+
+* Remove previous notifications on new one (#17)
+
 ## 1.0.1 (18 Sep 2017)
 
 * Make statusbar icon visible in dark UI
