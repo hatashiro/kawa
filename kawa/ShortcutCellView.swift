@@ -41,6 +41,7 @@ class ShortcutCellView: NSTableCellView {
     }
 
     func showNotification(_ message: String, icon: NSImage?) {
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
         guard Settings.get(.showNotification, withDefaultValue: true) else { return }
         let notification = NSUserNotification()
         notification.informativeText = message
