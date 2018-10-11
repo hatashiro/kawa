@@ -62,12 +62,15 @@ class InputSource: Equatable {
             for _ in 0..<distance {
                 InputSourceManager.selectNext(shortcut: selectNextShortcut)
             }
+            InputSourceManager.lastSelectedInputMethod = self
         }
     }
 }
 
 class InputSourceManager {
     static var inputSources: [InputSource] = []
+    static var lastSelectedInputMethod: InputSource? = nil
+    static var lastSelectTime: Date = Date(timeIntervalSince1970: 0)
 
     static func initialize() {
         let inputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
@@ -78,9 +81,13 @@ class InputSourceManager {
         }).map { InputSource(tisInputSource: $0) }
     }
 
-    // the result is not accurate if being called for multiple times in a short time
     static func currentSource() -> InputSource {
-        return InputSource(tisInputSource: TISCopyCurrentKeyboardInputSource().takeRetainedValue())
+        // the result from macOS is not accurate if being called for multiple times in a short time
+        if Date().timeIntervalSince(self.lastSelectTime) < 2 && self.lastSelectedInputMethod != nil {
+            return self.lastSelectedInputMethod!
+        } else {
+            return InputSource(tisInputSource: TISCopyCurrentKeyboardInputSource().takeRetainedValue())
+        }
     }
 
     static func getDistance(target: InputSource) -> Int {
@@ -95,6 +102,8 @@ class InputSourceManager {
     }
 
     static func selectNext(shortcut: (Int, UInt64)) {
+        self.lastSelectTime = Date()
+
         let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
         let rawKey = shortcut.0
