@@ -55,14 +55,12 @@ class InputSource: Equatable {
     }
 
     func select() {
-        TISSelectInputSource(tisInputSource)
-
-        if isCJKV, let selectPreviousShortcut = InputSourceManager.getSelectPreviousShortcut() {
-            // Workaround for TIS CJKV layout bug:
-            // when it's CJKV, select nonCJKV input first and then return
-            if let nonCJKV = InputSourceManager.nonCJKVSource() {
-                nonCJKV.select()
-                InputSourceManager.selectPrevious(shortcut: selectPreviousShortcut)
+        if !isCJKV {
+            TISSelectInputSource(tisInputSource)
+        } else if let selectNextShortcut = InputSourceManager.getSelectNextShortcut() {
+            let distance = InputSourceManager.getDistance(target: self)
+            for _ in 0..<distance {
+                InputSourceManager.selectNext(shortcut: selectNextShortcut)
             }
         }
     }
@@ -79,12 +77,24 @@ class InputSourceManager {
             $0.category == TISInputSource.Category.keyboardInputSource && $0.isSelectable
         }).map { InputSource(tisInputSource: $0) }
     }
-    
-    static func nonCJKVSource() -> InputSource? {
-        return inputSources.first(where: { !$0.isCJKV })
+
+    // the result is not accurate if being called for multiple times in a short time
+    static func currentSource() -> InputSource {
+        return InputSource(tisInputSource: TISCopyCurrentKeyboardInputSource().takeRetainedValue())
     }
 
-    static func selectPrevious(shortcut: (Int, UInt64)) {
+    static func getDistance(target: InputSource) -> Int {
+        let currentId = currentSource().id
+        let currentIndex = self.inputSources.index(where: {$0.id == currentId})!
+        let targetIndex = self.inputSources.index(where: {$0.id == target.id})!
+        if (targetIndex > currentIndex) {
+            return targetIndex -  currentIndex
+        } else {
+            return self.inputSources.count - currentIndex + targetIndex
+        }
+    }
+
+    static func selectNext(shortcut: (Int, UInt64)) {
         let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
 
         let rawKey = shortcut.0
@@ -105,14 +115,14 @@ class InputSourceManager {
 
     // from read-symbolichotkeys script of Karabiner
     // github.com/tekezo/Karabiner/blob/master/src/util/read-symbolichotkeys/read-symbolichotkeys/main.m
-    static func getSelectPreviousShortcut() -> (Int, UInt64)? {
+    static func getSelectNextShortcut() -> (Int, UInt64)? {
         guard let dict = UserDefaults.standard.persistentDomain(forName: "com.apple.symbolichotkeys") else {
             return nil
         }
         guard let symbolichotkeys = dict["AppleSymbolicHotKeys"] as! NSDictionary? else {
             return nil
         }
-        guard let symbolichotkey = symbolichotkeys["60"] as! NSDictionary? else {
+        guard let symbolichotkey = symbolichotkeys["61"] as! NSDictionary? else {
             return nil
         }
         if (symbolichotkey["enabled"] as! NSNumber).intValue != 1 {
