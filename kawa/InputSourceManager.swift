@@ -62,8 +62,8 @@ class InputSource: Equatable {
             for _ in 0..<distance {
                 InputSourceManager.selectNext(shortcut: selectNextShortcut)
             }
-            InputSourceManager.lastSelectedInputMethod = self
         }
+        InputSourceManager.lastSelectedInputMethod = self
     }
 }
 
