@@ -78,7 +78,7 @@ class InputSourceManager {
 
         inputSources = inputSourceList.filter({
             $0.category == TISInputSource.Category.keyboardInputSource && $0.isSelectable
-        }).map { InputSource(tisInputSource: $0) }
+        }).map { InputSource(tisInputSource: $0) }.sorted { $0.name < $1.name }
     }
 
     static func currentSource() -> InputSource {
