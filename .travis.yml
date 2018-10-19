@@ -1,7 +1,7 @@
 language: objective-c
 xcode_project: kawa.xcodeproj
 xcode_scheme: kawa
-osx_image: xcode8.3
+osx_image: xcode10
 before_script:
 - carthage bootstrap --no-use-binaries
 script:
