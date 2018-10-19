@@ -12,7 +12,7 @@ import Cocoa
 
 class StatusBar: NSObject {
     static var preferenceWindowController: PreferenceWindowController?
-    static let statusBar = NSStatusBar.system()
+    static let statusBar = NSStatusBar.system
     static var item: NSStatusItem? = nil
 
     static func initWithPreferenceWindowController(_ preferenceWindowController: PreferenceWindowController) {
@@ -39,7 +39,7 @@ class StatusBar: NSObject {
         }
     }
 
-    static func action(_ sender: AnyObject) {
+    @objc static func action(_ sender: AnyObject) {
         preferenceWindowController!.showAndActivate(sender)
     }
 

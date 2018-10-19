@@ -22,7 +22,7 @@ class PreferenceWindowController: NSWindowController, NSWindowDelegate {
 
     func deactivate() {
         // focus an application owning the menu bar
-        let workspace = NSWorkspace.shared()
-        workspace.menuBarOwningApplication?.activate(options: NSApplicationActivationOptions.activateIgnoringOtherApps)
+        let workspace = NSWorkspace.shared
+        workspace.menuBarOwningApplication?.activate(options: NSApplication.ActivationOptions.activateIgnoringOtherApps)
     }
 }
