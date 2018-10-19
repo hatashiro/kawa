@@ -85,22 +85,19 @@ class InputSourceManager {
     }
 
     static func selectPrevious(shortcut: (Int, UInt64)) {
-        let src = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)!
+        let src = CGEventSource(stateID: .hidSystemState)
 
-        let rawKey = shortcut.0
-        let rawFlags = shortcut.1
+        let key = CGKeyCode(shortcut.0)
+        let flag = CGEventFlags(rawValue: shortcut.1)
 
-        let down = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(rawKey), keyDown: true)!
-        let up = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(rawKey), keyDown: false)!
+        let down = CGEvent(keyboardEventSource: src, virtualKey: key, keyDown: true)!
+        let up = CGEvent(keyboardEventSource: src, virtualKey: key, keyDown: false)!
 
-        let flag = CGEventFlags(rawValue: rawFlags)
         down.flags = flag;
         up.flags = flag;
 
-        let loc = CGEventTapLocation.cghidEventTap
-
-        down.post(tap: loc)
-        up.post(tap: loc)
+        down.post(tap: .cghidEventTap)
+        up.post(tap: .cghidEventTap)
     }
 
     // from read-symbolichotkeys script of Karabiner
