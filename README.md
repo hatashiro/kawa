@@ -61,14 +61,12 @@ Kawa workarounded this bug by programmatically doing the followings:
 
 - Select a target input source
 - If the source is CJKV
-    - Switch to the first non-CJKV input source
-    - Return to the target input source by sending `Select the previous input source` shortcut
+    - Switch to the first non-CJKV input source twice with small delay
+    - Switch to the target input source
 
 Thus, to activate the workaround above, the following restrictions should meet.
 
 1. There is at least one non-CJKV input source in the input source list
-2. The `Select the previous input source` shortcut should be enabled and set to something
-    - It can be set in **System Preferences** > **Keyboard** > **Shortcuts** > **Input Sources**
 
 ## Preferences
 

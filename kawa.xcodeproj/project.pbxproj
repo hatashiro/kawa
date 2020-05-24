@@ -224,6 +224,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -404,6 +405,7 @@
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
@@ -423,6 +425,7 @@
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
