@@ -1,6 +1,6 @@
 import Cocoa
 
-class SystemSettingViewController: NSViewController {
+class PreferencesViewController: NSViewController {
   @IBOutlet weak var showNotificationCheckbox: NSButton!
 
   override func viewDidLoad() {

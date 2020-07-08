@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="-215.5" y="705"/>
         </scene>
-        <!--System Setting View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="rYs-if-gnG">
             <objects>
-                <viewController id="8tD-vA-uhk" customClass="SystemSettingViewController" customModule="Kawa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8tD-vA-uhk" customClass="PreferencesViewController" customModule="Kawa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" id="hjE-TV-MvY">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
