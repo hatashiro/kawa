@@ -1,6 +1,12 @@
 import Cocoa
 
 class PreferenceWindowController: NSWindowController, NSWindowDelegate {
+  static let shared: PreferenceWindowController = {
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    return storyboard.instantiateController(withIdentifier: "Preference")
+      as! PreferenceWindowController
+  }()
+
   func showAndActivate(_ sender: AnyObject?) {
     self.showWindow(sender)
     self.window?.makeKeyAndOrderFront(sender)
