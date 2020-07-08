@@ -4,14 +4,13 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
   var preferenceWindowController: PreferenceWindowController!
   var justLaunched: Bool = true
-  var launchedForTheFirstTime: Bool = Settings.get(.launchedForTheFirstTime, withDefaultValue: true)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     preferenceWindowController = instantiatePreferenceWindowController()
     StatusBar.initWithPreferenceWindowController(preferenceWindowController)
 
-    if launchedForTheFirstTime {
-      Settings.set(.launchedForTheFirstTime, toValue: false)
+    if Storage.launchedForTheFirstTime {
+      Storage.launchedForTheFirstTime = false
     }
   }
 
@@ -21,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   func applicationDidBecomeActive(_ notification: Notification) {
-    if !justLaunched || launchedForTheFirstTime {
+    if !justLaunched || Storage.launchedForTheFirstTime {
       preferenceWindowController.showAndActivate(self)
     }
 

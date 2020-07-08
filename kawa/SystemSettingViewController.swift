@@ -13,11 +13,9 @@ class SystemSettingViewController: NSViewController {
 
     showMenubarIconCheckbox.target = self
     showMenubarIconCheckbox.action = #selector(SystemSettingViewController.setShowMenubarIcon(_:))
-    var isOn: Bool = Settings.get(.showMenubarIcon, withDefaultValue: true)
-    showMenubarIconCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
+    showMenubarIconCheckbox.state = Storage.showsMenubarIcon.stateValue
 
-    isOn = Settings.get(.showNotification, withDefaultValue: false)
-    showNotificationCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
+    showNotificationCheckbox.state = Storage.showsNotification.stateValue
   }
 
   @objc func quitApp(_ sender: AnyObject) {
@@ -25,17 +23,22 @@ class SystemSettingViewController: NSViewController {
   }
 
   @objc func setShowMenubarIcon(_ sender: AnyObject) {
-    let isOn: Bool = showMenubarIconCheckbox.state == NSControl.StateValue.on
-    Settings.set(.showMenubarIcon, toValue: isOn)
-
-    if isOn {
-      StatusBar.createStatusBarItem()
-    } else {
-      StatusBar.removeStatusBarItem()
-    }
+    Storage.showsMenubarIcon = showMenubarIconCheckbox.state.boolValue
   }
 
   @IBAction func showNotification(_ sender: NSButton) {
-    Settings.set(.showNotification, toValue: sender.state == NSControl.StateValue.on)
+    Storage.showsNotification = sender.state.boolValue
+  }
+}
+
+private extension Bool {
+  var stateValue: NSControl.StateValue {
+    return self ? .on : .off;
+  }
+}
+
+private extension NSControl.StateValue {
+  var boolValue: Bool {
+    return self == .on;
   }
 }

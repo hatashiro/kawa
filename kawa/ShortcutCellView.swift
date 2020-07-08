@@ -27,13 +27,16 @@ class ShortcutCellView: NSTableCellView {
 
   func selectInput() {
     guard let inputSource = inputSource else { return }
+
     inputSource.select()
-    showNotification(inputSource.name, icon: inputSource.icon)
+
+    if Storage.showsNotification {
+      showNotification(inputSource.name, icon: inputSource.icon)
+    }
   }
 
   func showNotification(_ message: String, icon: NSImage?) {
     NSUserNotificationCenter.default.removeAllDeliveredNotifications()
-    guard Settings.get(.showNotification, withDefaultValue: false) else { return }
     let notification = NSUserNotification()
     notification.informativeText = message
     notification.contentImage = icon
