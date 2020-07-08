@@ -2,7 +2,6 @@ import Cocoa
 
 class SystemSettingViewController: NSViewController {
     @IBOutlet var showMenubarIconCheckbox: NSButton!
-    @IBOutlet var launchOnStartupCheckbox: NSButton!
     @IBOutlet weak var showNotificationCheckbox: NSButton!
     @IBOutlet var quitAppButton: NSButton!
     @IBOutlet var projectPageLink: HyperlinkTextField!
@@ -17,11 +16,6 @@ class SystemSettingViewController: NSViewController {
         showMenubarIconCheckbox.action = #selector(SystemSettingViewController.setShowMenubarIcon(_:))
         var isOn: Bool = Settings.get(.showMenubarIcon, withDefaultValue: true)
         showMenubarIconCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
-
-        launchOnStartupCheckbox.target = self
-        launchOnStartupCheckbox.action = #selector(SystemSettingViewController.setLaunchOnStartup(_:))
-        isOn = Settings.get(.launchOnStartup, withDefaultValue: true)
-        launchOnStartupCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
 
         isOn = Settings.get(.showNotification, withDefaultValue: false)
         showNotificationCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
@@ -44,12 +38,6 @@ class SystemSettingViewController: NSViewController {
         } else {
             StatusBar.removeStatusBarItem()
         }
-    }
-
-    @objc func setLaunchOnStartup(_ sender: AnyObject) {
-        let isOn: Bool = launchOnStartupCheckbox.state == NSControl.StateValue.on
-        Settings.set(.launchOnStartup, toValue: isOn)
-        LaunchOnStartup.setLaunchAtStartup(isOn)
     }
 
     @IBAction func showNotification(_ sender: NSButton) {

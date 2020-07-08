@@ -10,7 +10,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         InputSourceManager.initialize()
         preferenceWindowController = instantiatePreferenceWindowController()
         StatusBar.initWithPreferenceWindowController(preferenceWindowController)
-        LaunchOnStartup.setLaunchAtStartup(Settings.get(.launchOnStartup, withDefaultValue: true))
 
         if launchedForTheFirstTime {
             Settings.set(.launchedForTheFirstTime, toValue: false)
