@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		CC1FEF6F1B685FD3005E9BC8 /* ShortcutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */; };
 		CC291ADA1B73635800D529B9 /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */; };
 		CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4065BD1B6D334B000E1E87 /* Settings.swift */; };
-		CC4065C01B6DD9C3000E1E87 /* LaunchOnStartup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4065BF1B6DD9C3000E1E87 /* LaunchOnStartup.swift */; };
 		CC4181681B6CB3CB007DA794 /* SystemSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */; };
 		CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */; };
 		CC69E0781B66415300A92F58 /* ShortcutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0771B66415300A92F58 /* ShortcutViewController.swift */; };
@@ -44,7 +43,6 @@
 		CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutCellView.swift; sourceTree = "<group>"; };
 		CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		CC4065BD1B6D334B000E1E87 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		CC4065BF1B6DD9C3000E1E87 /* LaunchOnStartup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchOnStartup.swift; sourceTree = "<group>"; };
 		CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingViewController.swift; sourceTree = "<group>"; };
 		CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		CC69E0771B66415300A92F58 /* ShortcutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutViewController.swift; sourceTree = "<group>"; };
@@ -54,9 +52,9 @@
 		CC6D8ECC1B654099005682C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6D8ECD1B654099005682C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC6D8ED11B654099005682C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CC6D8ED41B654099005682C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSourceManager.swift; sourceTree = "<group>"; };
 		CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
+		DE8850D624B633EC002964E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE92E8FC1F6CC98E00559B7C /* TISInputSourceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TISInputSourceExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +94,6 @@
 				CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */,
 				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
 				EE92E8FC1F6CC98E00559B7C /* TISInputSourceExtension.swift */,
-				CC4065BF1B6DD9C3000E1E87 /* LaunchOnStartup.swift */,
 				CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */,
 				CC4065BD1B6D334B000E1E87 /* Settings.swift */,
 				CC69E0771B66415300A92F58 /* ShortcutViewController.swift */,
@@ -148,7 +145,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = noraesae;
 				TargetAttributes = {
 					CC6D8EC71B654099005682C0 = {
@@ -158,13 +155,11 @@
 				};
 			};
 			buildConfigurationList = CC6D8EC31B654099005682C0 /* Build configuration list for PBXProject "kawa" */;
-			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 11.4";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
-				Base,
 			);
 			mainGroup = CC6D8EBF1B654099005682C0;
 			productRefGroup = CC6D8EC91B654099005682C0 /* Products */;
@@ -199,7 +194,6 @@
 				CC69E07A1B6646B200A92F58 /* StatusBar.swift in Sources */,
 				CC291ADA1B73635800D529B9 /* HyperlinkTextField.swift in Sources */,
 				CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */,
-				CC4065C01B6DD9C3000E1E87 /* LaunchOnStartup.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
 				CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */,
 				CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */,
@@ -214,7 +208,7 @@
 		CC6D8ED31B654099005682C0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CC6D8ED41B654099005682C0 /* Base */,
+				DE8850D624B633EC002964E4 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -226,18 +220,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -273,18 +276,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -304,7 +316,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -312,13 +325,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
@@ -331,13 +348,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = kawa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
