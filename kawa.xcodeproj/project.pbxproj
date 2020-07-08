@@ -19,22 +19,11 @@
 		CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8ECD1B654099005682C0 /* AppDelegate.swift */; };
 		CC6D8ED21B654099005682C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED11B654099005682C0 /* Images.xcassets */; };
 		CC6D8ED51B654099005682C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6D8ED31B654099005682C0 /* Main.storyboard */; };
-		CC6D8EE11B654099005682C0 /* kawaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8EE01B654099005682C0 /* kawaTests.swift */; };
 		CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */; };
 		CC9AAD2B1B71AA5400626F65 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */; };
 		CC9AAD2C1B71AA5400626F65 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE92E8FD1F6CC98E00559B7C /* TISInputSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92E8FC1F6CC98E00559B7C /* TISInputSourceExtension.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CC6D8EDB1B654099005682C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC6D8EC01B654099005682C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CC6D8EC71B654099005682C0;
-			remoteInfo = kawa;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CC9AAD2D1B71AA5400626F65 /* Embed Frameworks */ = {
@@ -66,9 +55,6 @@
 		CC6D8ECD1B654099005682C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC6D8ED11B654099005682C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC6D8ED41B654099005682C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CC6D8EDA1B654099005682C0 /* kawaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kawaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC6D8EDF1B654099005682C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC6D8EE01B654099005682C0 /* kawaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kawaTests.swift; sourceTree = "<group>"; };
 		CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSourceManager.swift; sourceTree = "<group>"; };
 		CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
 		EE92E8FC1F6CC98E00559B7C /* TISInputSourceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TISInputSourceExtension.swift; sourceTree = "<group>"; };
@@ -83,13 +69,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC6D8ED71B654099005682C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8ECA1B654099005682C0 /* kawa */,
-				CC6D8EDD1B654099005682C0 /* kawaTests */,
 				CC6D8EC91B654099005682C0 /* Products */,
 				CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */,
 			);
@@ -107,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8EC81B654099005682C0 /* Kawa.app */,
-				CC6D8EDA1B654099005682C0 /* kawaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,23 +120,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC6D8EDD1B654099005682C0 /* kawaTests */ = {
-			isa = PBXGroup;
-			children = (
-				CC6D8EE01B654099005682C0 /* kawaTests.swift */,
-				CC6D8EDE1B654099005682C0 /* Supporting Files */,
-			);
-			path = kawaTests;
-			sourceTree = "<group>";
-		};
-		CC6D8EDE1B654099005682C0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CC6D8EDF1B654099005682C0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,24 +141,6 @@
 			productReference = CC6D8EC81B654099005682C0 /* Kawa.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CC6D8ED91B654099005682C0 /* kawaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CC6D8EE71B654099005682C0 /* Build configuration list for PBXNativeTarget "kawaTests" */;
-			buildPhases = (
-				CC6D8ED61B654099005682C0 /* Sources */,
-				CC6D8ED71B654099005682C0 /* Frameworks */,
-				CC6D8ED81B654099005682C0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC6D8EDC1B654099005682C0 /* PBXTargetDependency */,
-			);
-			name = kawaTests;
-			productName = kawaTests;
-			productReference = CC6D8EDA1B654099005682C0 /* kawaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,10 +155,6 @@
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 1000;
 					};
-					CC6D8ED91B654099005682C0 = {
-						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 1000;
-					};
 				};
 			};
 			buildConfigurationList = CC6D8EC31B654099005682C0 /* Build configuration list for PBXProject "kawa" */;
@@ -224,6 +162,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -233,7 +172,6 @@
 			projectRoot = "";
 			targets = (
 				CC6D8EC71B654099005682C0 /* kawa */,
-				CC6D8ED91B654099005682C0 /* kawaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,13 +183,6 @@
 			files = (
 				CC6D8ED21B654099005682C0 /* Images.xcassets in Resources */,
 				CC6D8ED51B654099005682C0 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC6D8ED81B654099005682C0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,23 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC6D8ED61B654099005682C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC6D8EE11B654099005682C0 /* kawaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CC6D8EDC1B654099005682C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CC6D8EC71B654099005682C0 /* kawa */;
-			targetProxy = CC6D8EDB1B654099005682C0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CC6D8ED31B654099005682C0 /* Main.storyboard */ = {
@@ -431,44 +346,6 @@
 			};
 			name = Release;
 		};
-		CC6D8EE81B654099005682C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = kawaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		CC6D8EE91B654099005682C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = kawaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -486,15 +363,6 @@
 			buildConfigurations = (
 				CC6D8EE51B654099005682C0 /* Debug */,
 				CC6D8EE61B654099005682C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CC6D8EE71B654099005682C0 /* Build configuration list for PBXNativeTarget "kawaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC6D8EE81B654099005682C0 /* Debug */,
-				CC6D8EE91B654099005682C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
