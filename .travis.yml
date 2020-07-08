@@ -1,8 +1,0 @@
-language: objective-c
-xcode_project: kawa.xcodeproj
-xcode_scheme: kawa
-osx_image: xcode10
-before_script:
-- carthage bootstrap --no-use-binaries
-script:
-- xcodebuild -archivePath kawa -scheme kawa archive
