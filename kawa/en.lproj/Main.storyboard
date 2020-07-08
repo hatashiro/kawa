@@ -168,11 +168,13 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="quitApp:" target="8tD-vA-uhk" id="nK5-UQ-tHJ"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="quitAppButton" destination="13u-Dv-ipW" id="EEK-Sd-doA"/>
                         <outlet property="showNotificationCheckbox" destination="Ix0-UJ-v3V" id="HxT-bb-QrP"/>
                     </connections>
                 </viewController>
