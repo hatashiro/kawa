@@ -2,12 +2,12 @@ import Cocoa
 
 class ShortcutTableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return InputSourceManager.inputSources.count
+    return InputSource.sources.count
   }
 
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let identifier = convertFromNSUserInterfaceItemIdentifier(tableColumn!.identifier)
-    let inputSource = InputSourceManager.inputSources[row]
+    let inputSource = InputSource.sources[row]
 
     if identifier == "Keyboard" {
       return createKeyboardCellView(tableView, inputSource)

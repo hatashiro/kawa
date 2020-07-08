@@ -1,11 +1,7 @@
 import Carbon
 import Cocoa
 
-class InputSource: Equatable {
-  static func == (lhs: InputSource, rhs: InputSource) -> Bool {
-    return lhs.id == rhs.id
-  }
-
+class InputSource {
   let tisInputSource: TISInputSource
   let icon: NSImage?
 
@@ -43,16 +39,23 @@ class InputSource: Equatable {
   }
 }
 
-class InputSourceManager {
-  static var inputSources: [InputSource]
+extension InputSource: Equatable {
+  static func == (lhs: InputSource, rhs: InputSource) -> Bool {
+    return lhs.id == rhs.id
+  }
+}
 
-  static func initialize() {
+extension InputSource {
+  static var sources: [InputSource] {
     let inputSourceNSArray = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray
     let inputSourceList = inputSourceNSArray as! [TISInputSource]
 
-    inputSources = inputSourceList.filter({
-      $0.category == TISInputSource.Category.keyboardInputSource && $0.isSelectable
-    }).map { InputSource(tisInputSource: $0) }
+    return inputSourceList
+      .filter {
+        $0.category == TISInputSource.Category.keyboardInputSource && $0.isSelectable
+    }.map {
+      InputSource(tisInputSource: $0)
+    }
   }
 }
 

@@ -7,7 +7,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var launchedForTheFirstTime: Bool = Settings.get(.launchedForTheFirstTime, withDefaultValue: true)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    InputSourceManager.initialize()
     preferenceWindowController = instantiatePreferenceWindowController()
     StatusBar.initWithPreferenceWindowController(preferenceWindowController)
 
