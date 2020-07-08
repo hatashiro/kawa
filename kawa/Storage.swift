@@ -15,24 +15,8 @@ class Storage {
   }
 
   private enum StorageKey: String {
-    case showsMenubarIcon = "show-menubar-icon"
     case showsNotification = "show-notification"
     case launchedForTheFirstTime = "launched-for-the-first-time"
-  }
-
-  static var showsMenubarIcon: Bool {
-    get {
-      return object(forKey: .showsMenubarIcon, withDefault: true)
-    }
-    set {
-      set(newValue, forKey: .showsMenubarIcon)
-
-      if newValue {
-        StatusBar.createStatusBarItem()
-      } else {
-        StatusBar.removeStatusBarItem()
-      }
-    }
   }
 
   static var showsNotification: Bool {

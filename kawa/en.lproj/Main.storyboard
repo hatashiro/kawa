@@ -147,25 +147,8 @@
                                     <rect key="frame" x="3" y="3" width="410" height="123"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-vT-3c2">
-                                            <rect key="frame" x="16" y="97" width="382" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Show menubar icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0Xx-Sj-It1">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zub-x4-8eR">
-                                            <rect key="frame" x="35" y="62" width="363" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="When the icon is hidden, Kawa can be accessed by launching it again" id="ZP5-V3-u7u">
-                                                <font key="font" metaFont="systemBold"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ix0-UJ-v3V">
-                                            <rect key="frame" x="16" y="38" width="382" height="18"/>
+                                            <rect key="frame" x="14" y="98" width="382" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show notification on input source change" bezelStyle="regularSquare" imagePosition="left" inset="2" id="qfa-bZ-zps">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -190,7 +173,6 @@
                     </view>
                     <connections>
                         <outlet property="quitAppButton" destination="13u-Dv-ipW" id="EEK-Sd-doA"/>
-                        <outlet property="showMenubarIconCheckbox" destination="JXT-vT-3c2" id="972-vw-teN"/>
                         <outlet property="showNotificationCheckbox" destination="Ix0-UJ-v3V" id="HxT-bb-QrP"/>
                     </connections>
                 </viewController>
