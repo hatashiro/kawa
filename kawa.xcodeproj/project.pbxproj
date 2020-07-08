@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CC1FEF6F1B685FD3005E9BC8 /* ShortcutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */; };
-		CC291ADA1B73635800D529B9 /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */; };
 		CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4065BD1B6D334B000E1E87 /* Settings.swift */; };
 		CC4181681B6CB3CB007DA794 /* SystemSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */; };
 		CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		CC1FEF6D1B685E9A005E9BC8 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutCellView.swift; sourceTree = "<group>"; };
-		CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		CC4065BD1B6D334B000E1E87 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CC4181671B6CB3CB007DA794 /* SystemSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingViewController.swift; sourceTree = "<group>"; };
 		CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
-				CC291AD91B73635800D529B9 /* HyperlinkTextField.swift */,
 				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
 				EE92E8FC1F6CC98E00559B7C /* TISInputSourceExtension.swift */,
 				CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */,
@@ -192,7 +189,6 @@
 				CC69E07C1B665A5C00A92F58 /* ShortcutTableView.swift in Sources */,
 				CC4181681B6CB3CB007DA794 /* SystemSettingViewController.swift in Sources */,
 				CC69E07A1B6646B200A92F58 /* StatusBar.swift in Sources */,
-				CC291ADA1B73635800D529B9 /* HyperlinkTextField.swift in Sources */,
 				CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
 				CC4065BE1B6D334B000E1E87 /* Settings.swift in Sources */,

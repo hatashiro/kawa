@@ -4,7 +4,6 @@ class SystemSettingViewController: NSViewController {
     @IBOutlet var showMenubarIconCheckbox: NSButton!
     @IBOutlet weak var showNotificationCheckbox: NSButton!
     @IBOutlet var quitAppButton: NSButton!
-    @IBOutlet var projectPageLink: HyperlinkTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +18,6 @@ class SystemSettingViewController: NSViewController {
 
         isOn = Settings.get(.showNotification, withDefaultValue: false)
         showNotificationCheckbox.state = isOn ? NSControl.StateValue.on : NSControl.StateValue.off
-
-        let urlString = projectPageLink.stringValue
-        let url = URL(string: "https://" + urlString)
-        projectPageLink.setURL(url!)
     }
 
     @objc func quitApp(_ sender: AnyObject) {
