@@ -1,12 +1,3 @@
-//
-//  ShortcutViewController.swift
-//  kawa
-//
-//  Created by utatti on 27/07/2015.
-//  Copyright (c) 2015-2016 utatti and project contributors.
-//  Licensed under the MIT License.
-//
-
 import Cocoa
 
 class ShortcutViewController: NSViewController {

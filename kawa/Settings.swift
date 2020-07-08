@@ -1,12 +1,3 @@
-//
-//  Settings.swift
-//  kawa
-//
-//  Created by utatti on 02/08/2015.
-//  Copyright (c) 2015-2017 utatti and project contributors.
-//  Licensed under the MIT License.
-//
-
 import Cocoa
 
 class Settings {

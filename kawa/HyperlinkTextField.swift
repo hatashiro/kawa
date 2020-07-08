@@ -1,12 +1,3 @@
-//
-//  HyperlinkTextField.swift
-//  kawa
-//
-//  Created by utatti on 06/08/2015.
-//  Copyright (c) 2015-2016 utatti and project contributors.
-//  Licensed under the MIT License.
-//
-
 import Cocoa
 
 class HyperlinkTextField: NSTextField {

@@ -1,12 +1,3 @@
-//
-//  TISInputSourceExtension.swift
-//  kawa
-//
-//  Created by Yonguk Jeong on 16/09/2017.
-//  Copyright (c) 2017 utatti and project contributors.
-//  Licensed under the MIT License.
-//
-
 import Foundation
 
 extension TISInputSource {
