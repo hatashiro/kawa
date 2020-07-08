@@ -266,6 +266,10 @@
                                             </prototypeCellViews>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="WK9-v7-Mix" id="aej-cj-czv"/>
+                                        <outlet property="delegate" destination="WK9-v7-Mix" id="Nq8-FC-ORG"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                         </clipView>
@@ -282,9 +286,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <connections>
-                        <outlet property="tableView" destination="biS-0R-WsE" id="36E-p9-4Bg"/>
-                    </connections>
                 </viewController>
                 <customObject id="iGh-Aw-zBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
