@@ -1,6 +1,6 @@
 import Cocoa
 
-class Storage {
+class PermanentStorage {
   private static func object<T>(forKey key: StorageKey, withDefault defaultValue: T) -> T {
     if let val = UserDefaults.standard.object(forKey: key.rawValue) as? T {
       return val

@@ -7,13 +7,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var justLaunched: Bool = true
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    if Storage.launchedForTheFirstTime {
-      Storage.launchedForTheFirstTime = false
+    if PermanentStorage.launchedForTheFirstTime {
+      PermanentStorage.launchedForTheFirstTime = false
     }
   }
 
   func applicationDidBecomeActive(_ notification: Notification) {
-    if !justLaunched || Storage.launchedForTheFirstTime {
+    if !justLaunched || PermanentStorage.launchedForTheFirstTime {
       showPreferences()
     }
 

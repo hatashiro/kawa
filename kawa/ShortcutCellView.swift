@@ -30,7 +30,7 @@ class ShortcutCellView: NSTableCellView {
 
     inputSource.select()
 
-    if Storage.showsNotification {
+    if PermanentStorage.showsNotification {
       showNotification(inputSource.name, icon: inputSource.icon)
     }
   }

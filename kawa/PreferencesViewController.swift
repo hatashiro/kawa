@@ -6,7 +6,7 @@ class PreferencesViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    showNotificationCheckbox.state = Storage.showsNotification.stateValue
+    showNotificationCheckbox.state = PermanentStorage.showsNotification.stateValue
   }
 
   @IBAction func quitApp(_ sender: NSButton) {
@@ -14,7 +14,7 @@ class PreferencesViewController: NSViewController {
   }
 
   @IBAction func showNotification(_ sender: NSButton) {
-    Storage.showsNotification = sender.state.boolValue
+    PermanentStorage.showsNotification = sender.state.boolValue
   }
 }
 
