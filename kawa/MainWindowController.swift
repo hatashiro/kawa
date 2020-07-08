@@ -1,10 +1,9 @@
 import Cocoa
 
-class PreferenceWindowController: NSWindowController, NSWindowDelegate {
-  static let shared: PreferenceWindowController = {
+class MainWindowController: NSWindowController, NSWindowDelegate {
+  static let shared: MainWindowController = {
     let storyboard = NSStoryboard(name: "Main", bundle: nil)
-    return storyboard.instantiateController(withIdentifier: "Preference")
-      as! PreferenceWindowController
+    return storyboard.instantiateController(withIdentifier: "MainWindow") as! MainWindowController
   }()
 
   func showAndActivate(_ sender: AnyObject?) {

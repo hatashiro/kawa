@@ -10,7 +10,7 @@
 		CC1FEF6F1B685FD3005E9BC8 /* ShortcutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */; };
 		CC4065BE1B6D334B000E1E87 /* PermanentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4065BD1B6D334B000E1E87 /* PermanentStorage.swift */; };
 		CC4181681B6CB3CB007DA794 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4181671B6CB3CB007DA794 /* PreferencesViewController.swift */; };
-		CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */; };
+		CC69E0761B663E1E00A92F58 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0751B663E1E00A92F58 /* MainWindowController.swift */; };
 		CC69E0781B66415300A92F58 /* ShortcutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0771B66415300A92F58 /* ShortcutViewController.swift */; };
 		CC69E07A1B6646B200A92F58 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC69E0791B6646B200A92F58 /* StatusBar.swift */; };
 		CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6D8ECD1B654099005682C0 /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 		CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutCellView.swift; sourceTree = "<group>"; };
 		CC4065BD1B6D334B000E1E87 /* PermanentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermanentStorage.swift; sourceTree = "<group>"; };
 		CC4181671B6CB3CB007DA794 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		CC69E0751B663E1E00A92F58 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		CC69E0771B66415300A92F58 /* ShortcutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutViewController.swift; sourceTree = "<group>"; };
 		CC69E0791B6646B200A92F58 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		CC6D8EC81B654099005682C0 /* Kawa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kawa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +88,7 @@
 			children = (
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
 				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
-				CC69E0751B663E1E00A92F58 /* PreferenceWindowController.swift */,
+				CC69E0751B663E1E00A92F58 /* MainWindowController.swift */,
 				CC4065BD1B6D334B000E1E87 /* PermanentStorage.swift */,
 				CC69E0771B66415300A92F58 /* ShortcutViewController.swift */,
 				CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */,
@@ -185,7 +185,7 @@
 				CC1FEF6F1B685FD3005E9BC8 /* ShortcutCellView.swift in Sources */,
 				CC4181681B6CB3CB007DA794 /* PreferencesViewController.swift in Sources */,
 				CC69E07A1B6646B200A92F58 /* StatusBar.swift in Sources */,
-				CC69E0761B663E1E00A92F58 /* PreferenceWindowController.swift in Sources */,
+				CC69E0761B663E1E00A92F58 /* MainWindowController.swift in Sources */,
 				CC6D8ECE1B654099005682C0 /* AppDelegate.swift in Sources */,
 				CC4065BE1B6D334B000E1E87 /* PermanentStorage.swift in Sources */,
 				CC6D8EEB1B654143005682C0 /* InputSourceManager.swift in Sources */,

@@ -20,6 +20,6 @@ class StatusBar {
   }
 
   @objc func action(_ sender: NSButton) {
-    PreferenceWindowController.shared.showAndActivate(sender)
+    MainWindowController.shared.showAndActivate(sender)
   }
 }

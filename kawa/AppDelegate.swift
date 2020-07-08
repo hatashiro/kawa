@@ -23,10 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @IBAction func showPreferences(_ sender: AnyObject? = nil) {
-    PreferenceWindowController.shared.showAndActivate(self)
+    MainWindowController.shared.showAndActivate(self)
   }
 
   @IBAction func hidePreferences(_ sender: AnyObject?) {
-    PreferenceWindowController.shared.close()
+    MainWindowController.shared.close()
   }
 }
