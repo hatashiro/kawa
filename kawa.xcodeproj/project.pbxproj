@@ -87,12 +87,12 @@
 			isa = PBXGroup;
 			children = (
 				CC6D8ECD1B654099005682C0 /* AppDelegate.swift */,
-				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
-				CC69E0751B663E1E00A92F58 /* MainWindowController.swift */,
+				CC69E0791B6646B200A92F58 /* StatusBar.swift */,
 				CC4065BD1B6D334B000E1E87 /* PermanentStorage.swift */,
+				CC69E0751B663E1E00A92F58 /* MainWindowController.swift */,
 				CC69E0771B66415300A92F58 /* ShortcutViewController.swift */,
 				CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */,
-				CC69E0791B6646B200A92F58 /* StatusBar.swift */,
+				CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */,
 				CC4181671B6CB3CB007DA794 /* PreferencesViewController.swift */,
 				CC6D8ED11B654099005682C0 /* Images.xcassets */,
 				CC6D8ED31B654099005682C0 /* Main.storyboard */,
