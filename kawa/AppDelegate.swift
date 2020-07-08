@@ -31,9 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-    }
-
     @IBAction func showPreferences(_ sender: AnyObject?) {
         preferenceWindowController.showAndActivate(self)
     }
