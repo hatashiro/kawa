@@ -14,7 +14,7 @@ A macOS input source switcher with user-defined shortcuts.
 
 ```shell
 brew update
-brew cask install kawa
+brew install --cask kawa
 ```
 
 ### Manually
