@@ -37,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		35DBF9C028B15F7E002DFFC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC1FEF6D1B685E9A005E9BC8 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		CC1FEF6E1B685FD3005E9BC8 /* ShortcutCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutCellView.swift; sourceTree = "<group>"; };
 		CC4065BD1B6D334B000E1E87 /* PermanentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermanentStorage.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		CC6D8ED11B654099005682C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC6D8EEA1B654143005682C0 /* InputSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSourceManager.swift; sourceTree = "<group>"; };
 		CC9AAD2A1B71AA5400626F65 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
-		DE8850D624B633EC002964E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE92E8FC1F6CC98E00559B7C /* TISInputSource+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TISInputSource+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +139,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = noraesae;
 				TargetAttributes = {
 					CC6D8EC71B654099005682C0 = {
@@ -154,6 +154,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CC6D8EBF1B654099005682C0;
 			productRefGroup = CC6D8EC91B654099005682C0 /* Products */;
@@ -200,7 +201,7 @@
 		CC6D8ED31B654099005682C0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DE8850D624B633EC002964E4 /* en */,
+				35DBF9C028B15F7E002DFFC5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -231,6 +232,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -287,6 +289,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -328,6 +331,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
@@ -351,6 +355,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.noraesae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kawa;
 				SWIFT_OBJC_BRIDGING_HEADER = kawa/BridgingHeader.h;
