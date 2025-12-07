@@ -10,6 +10,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     if PermanentStorage.launchedForTheFirstTime {
       PermanentStorage.launchedForTheFirstTime = false
     }
+
+    if PermanentStorage.showsNotification {
+      NotificationManager.requestAuthorizationIfNeeded { _ in }
+    }
   }
 
   func applicationDidBecomeActive(_ notification: Notification) {

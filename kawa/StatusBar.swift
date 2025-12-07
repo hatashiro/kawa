@@ -7,7 +7,7 @@ class StatusBar {
   let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
   init() {
-    let button = item.button!
+    guard let button = item.button else { return }
 
     let buttonImage = NSImage(named: "StatusItemIcon")
     buttonImage?.isTemplate = true

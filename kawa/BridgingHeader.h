@@ -11,6 +11,6 @@
 #define kawa_BridgingHeader_h
 
 #import <Cocoa/Cocoa.h>
-#import <MASShortcut/Shortcut.h>
+@import MASShortcut;
 
 #endif

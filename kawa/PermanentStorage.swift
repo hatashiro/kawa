@@ -1,27 +1,24 @@
 import Cocoa
 
 class PermanentStorage {
-  private static func object<T>(forKey key: StorageKey, withDefault defaultValue: T) -> T {
-    if let val = UserDefaults.standard.object(forKey: key.rawValue) as? T {
-      return val
-    } else {
-      return defaultValue
-    }
-  }
-
-  private static func set<T>(_ value: T, forKey key: StorageKey) {
-    UserDefaults.standard.set((value as AnyObject), forKey: key.rawValue)
-    UserDefaults.standard.synchronize()
-  }
+  private static let defaults = UserDefaults.standard
 
   private enum StorageKey: String {
     case showsNotification = "show-notification"
     case launchedForTheFirstTime = "launched-for-the-first-time"
   }
 
+  private static func bool(forKey key: StorageKey, default defaultValue: Bool) -> Bool {
+    return defaults.object(forKey: key.rawValue) as? Bool ?? defaultValue
+  }
+
+  private static func set(_ value: Bool, forKey key: StorageKey) {
+    defaults.set(value, forKey: key.rawValue)
+  }
+
   static var showsNotification: Bool {
     get {
-      return object(forKey: .showsNotification, withDefault: false)
+      return bool(forKey: .showsNotification, default: false)
     }
     set {
       set(newValue, forKey: .showsNotification)
@@ -30,7 +27,7 @@ class PermanentStorage {
 
   static var launchedForTheFirstTime: Bool {
     get {
-      return object(forKey: .launchedForTheFirstTime, withDefault: true)
+      return bool(forKey: .launchedForTheFirstTime, default: true)
     }
     set {
       set(newValue, forKey: .launchedForTheFirstTime)
