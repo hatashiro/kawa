@@ -55,7 +55,7 @@ class PreferencesViewController: NSViewController {
       launchAtLoginCheckbox.isEnabled = false
       launchAtLoginCheckbox.state = .off
       launchAtLoginStatus.stringValue =
-        "macOS 12: add Kawa in System Preferences > Users & Groups > Login Items."
+        "macOS 12 or earlier: add Kawa in System Preferences > Users & Groups > Login Items."
       return
     }
 
