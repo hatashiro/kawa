@@ -1,0 +1,3 @@
+MACOSX_DEPLOYMENT_TARGET = 12.0
+// MASShortcut 2.4.0 uses deprecated APIs that newer SDKs warn about.
+GCC_TREAT_WARNINGS_AS_ERRORS = NO
