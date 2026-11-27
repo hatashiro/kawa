@@ -33,9 +33,9 @@ sources like [CJKV](https://en.wikipedia.org/wiki/CJK_characters).
 
 ## Development
 
-We use [Carthage](https://github.com/Carthage/Carthage) as a dependency manager.
-You can find the latest releases of Carthage [here](https://github.com/Carthage/Carthage/releases),
-or just install it with [Homebrew](http://brew.sh).
+Install full Xcode and a recent version of [Carthage](https://github.com/Carthage/Carthage)
+that supports XCFrameworks (0.37 or later). The Xcode command line tools alone
+are not sufficient.
 
 ```bash
 $ brew update
@@ -46,10 +46,29 @@ To clone the Git repository of Kawa and install dependencies:
 
 ```bash
 $ git clone git@github.com:utatti/kawa.git
-$ carthage bootstrap
+$ cd kawa
+$ XCODE_XCCONFIG_FILE="$PWD/Carthage.xcconfig" carthage bootstrap --platform macOS --use-xcframeworks --no-use-binaries
 ```
 
-After dependency installation, open the project with Xcode.
+After dependency installation, open `kawa.xcodeproj` with Xcode. For a release
+build, use the standard architectures to include Intel and Apple Silicon. Kawa
+requires macOS 12 or later. Verify that both the app and its embedded
+MASShortcut framework contain `x86_64` and `arm64`:
+
+```bash
+lipo -archs path/to/Kawa.app/Contents/MacOS/Kawa
+lipo -archs path/to/Kawa.app/Contents/Frameworks/MASShortcut.framework/MASShortcut
+```
+
+If Git is configured with `safe.bareRepository=explicit`, Carthage's dependency
+checkout may fail. To allow its bare repository cache only for this command,
+run the bootstrap command with:
+
+```bash
+GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.bareRepository GIT_CONFIG_VALUE_0=all \
+  XCODE_XCCONFIG_FILE="$PWD/Carthage.xcconfig" \
+  carthage bootstrap --platform macOS --use-xcframeworks --no-use-binaries
+```
 
 ## License
 
