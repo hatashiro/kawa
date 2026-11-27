@@ -23,6 +23,13 @@ The prebuilt binaries can be found in [Releases](https://github.com/utatti/kawa/
 
 Unzip `Kawa.zip` and move `Kawa.app` to `Applications`.
 
+### Launch at login
+
+On macOS 13 and later, enable **Launch at login** in Kawa's Preferences.
+If macOS asks for approval, allow Kawa in System Settings under General >
+Login Items. On macOS 12 and earlier, add Kawa manually under System Preferences >
+Users & Groups > Login Items.
+
 ## Caveats
 
 ### CJKV input sources
